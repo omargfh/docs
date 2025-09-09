@@ -1,0 +1,96 @@
+name: Deploy NetLogo Documentation
+
+on:
+  push:
+    branches:
+      - prebuild
+  workflow_dispatch:
+    inputs:
+      deploy_target:
+        description: 'Deployment target'
+        required: false
+        default: 'staging'
+        type: choice
+        options:
+          - main
+          - staging
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout Source Branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Environment Variables
+        id: setup_vars
+        run: echo "DIST_DIR=dist" >> $GITHUB_ENV
+
+      - name: Build Distribution Files
+        run: |
+          mkdir -p ${{ env.DIST_DIR }}
+          
+          EXCLUDE=("latest" "${{ env.DIST_DIR }}" "$(basename "$0")" ".git" ".github" ".gitignore" "README.md")
+          for item in *; do
+              if [[ ! " ${EXCLUDE[@]} " =~ " $item " ]]; then
+                  cp -R "$item" "${{ env.DIST_DIR }}/"
+              fi
+          done
+
+          if [ -L "latest" ]; then
+            LATEST_TARGET=$(readlink latest)
+            if [ -d "$LATEST_TARGET" ]; then
+              cp -R "$LATEST_TARGET"/* "${{ env.DIST_DIR }}/"
+            else
+              echo "::error::'latest' symlink target '$LATEST_TARGET' does not exist."
+              exit 1
+            fi
+          elif [ -d "latest" ]; then
+            cp -R "latest"/* "${{ env.DIST_DIR }}/"
+          else
+            echo "::warning::'latest' directory or symlink not found."
+          fi
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Checkout Target Branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-branch
+      
+      - name: Deploy to Main Branch
+        id: deploy
+        run: |
+          cd main-branch
+          
+          # Efficiently remove old files and copy new ones
+          git rm -rf . && git clean -fxd
+          cp -R ../${{ env.DIST_DIR }}/* .
+          
+          git add -A
+          
+          if git diff --staged --quiet; then
+            echo "No changes to deploy."
+            echo "status=no-changes" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected, committing and pushing."
+            git commit -m "docs: Deploy documentation from prebuild branch
+            
+            Source commit: ${{ github.sha }}
+            Branch: ${{ github.ref_name }}
+            Distribution size: $(du -sh ../${{ env.DIST_DIR }} | cut -f1)"
+            git push origin main
+            echo "status=deployed" >> $GITHUB_OUTPUT
+          fi
