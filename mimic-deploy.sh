@@ -20,9 +20,6 @@ for item in *; do
     if [[ ! " ${EXCLUDE[@]} " =~ " $item " ]]; then
         echo "  Copying $item"
         cp -R "$item" "$DIST/"
-        if [[ -d "$item" && $(basename "$item") == [0-9]* ]]; then
-          cp "index2.html" "$DIST/$item/"
-        fi
     fi
 done
 
