@@ -67,13 +67,13 @@ jobs:
       - name: Checkout Target Branch
         uses: actions/checkout@v4
         with:
-          ref: main
-          path: main-branch
-      
-      - name: Deploy to Main Branch
+          ref: prebuild
+          path: prebuild-branch
+
+      - name: Deploy to prebuild Branch
         id: deploy
         run: |
-          cd main-branch
+          cd prebuild-branch
           
           # Efficiently remove old files and copy new ones
           git rm -rf . && git clean -fxd
@@ -86,11 +86,11 @@ jobs:
             echo "status=no-changes" >> $GITHUB_OUTPUT
           else
             echo "Changes detected, committing and pushing."
-            git commit -m "docs: Deploy documentation from prebuild branch
+            git commit -m "docs: Deploy documentation from main branch
             
             Source commit: ${{ github.sha }}
             Branch: ${{ github.ref_name }}
             Distribution size: $(du -sh ../${{ env.DIST_DIR }} | cut -f1)"
-            git push origin main
+            git push origin prebuild
             echo "status=deployed" >> $GITHUB_OUTPUT
           fi
