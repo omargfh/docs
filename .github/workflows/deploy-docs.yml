@@ -12,7 +12,7 @@ on:
         default: 'prebuild'
         type: choice
         options:
-          - prebuild
+          - 'gh-pages/live-site'
           - staging
 
 jobs:
@@ -67,10 +67,10 @@ jobs:
       - name: Checkout Target Branch
         uses: actions/checkout@v4
         with:
-          ref: prebuild
+          ref: 'gh-pages/live-site'
           path: prebuild-branch
 
-      - name: Deploy to prebuild Branch
+      - name: Deploy to gh-pages/live-site Branch
         id: deploy
         run: |
           cd prebuild-branch
