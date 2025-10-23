@@ -35,7 +35,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.0: FAQ (Frequently Asked Questions)</title>
+		<title>NetLogo 7.0.1: FAQ (Frequently Asked Questions)</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -53,7 +53,7 @@
 		<script>
 			window.netlogo = {
 				...(window.netlogo || {}),
-				version: "7.0.0",
+				version: "7.0.1",
 				title: "FAQ (Frequently Asked Questions)",
 				pdf: false,
 				stringVariables: {
@@ -311,8 +311,8 @@
 				</div>
 				<div class="navbar__actions">
 					<!-- Version / Actions -->
-					<select id="version-select" class="version-select" aria-label="Select version">
-						<option selected value="this">7.0.0</option>
+					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.1">
+						<option selected value="this">7.0.1</option>
 						<!-- See script:expandStringVariables for details on how ${var} works -->
 						<option data-url-prefix="${CCL}/6.4.0/docs" value="6.4.0">6.4</option>
 						<option data-url-prefix="${CCL}/6.3.0/docs" value="6.3.0">6.3.0</option>
@@ -700,7 +700,7 @@ colored blocks.</p>
 or (at your option) any later version.</p>
 <p>Commercial licenses are also available. To inquire about commercial licenses,
 please contact Uri Wilensky at
-<a href="mailto:netlogo-commercial-admin@ccl.northwestern.edu"><a href="&#109;a&#105;&#x6c;&#x74;&#x6f;&#x3a;&#110;&#x65;&#x74;l&#111;&#x67;&#111;-&#99;&#111;&#109;m&#101;r&#x63;&#105;&#x61;&#x6c;&#45;&#97;d&#x6d;&#x69;n&#64;&#x63;&#x63;&#108;&#46;&#110;&#111;&#114;&#x74;&#x68;&#119;&#101;&#115;&#116;&#x65;&#114;&#110;&#46;&#x65;&#100;&#117;">&#x6e;&#101;&#x74;&#x6c;&#x6f;&#x67;&#111;&#x2d;&#99;&#111;m&#109;&#x65;&#x72;c&#x69;&#97;&#108;&#45;&#x61;&#100;m&#x69;&#110;&#64;&#x63;&#99;&#x6c;&#46;&#110;&#111;&#x72;&#x74;&#x68;&#119;&#101;&#115;&#x74;&#x65;&#114;&#110;.&#x65;d&#117;</a></a>.</p>
+<a href="mailto:netlogo-commercial-admin@ccl.northwestern.edu"><a href="&#109;a&#105;&#108;t&#x6f;:&#x6e;&#x65;&#116;&#x6c;&#x6f;&#x67;o&#x2d;&#x63;&#111;&#x6d;m&#101;&#114;&#99;&#105;&#x61;&#108;&#45;&#x61;&#x64;&#x6d;i&#x6e;&#64;&#99;&#99;&#108;&#x2e;&#110;o&#x72;&#x74;hw&#x65;&#x73;t&#x65;&#x72;n&#46;&#101;&#100;&#117;">&#110;&#x65;&#116;&#108;&#111;&#103;&#111;&#x2d;&#99;&#x6f;&#109;&#109;&#101;r&#x63;&#x69;&#97;&#x6c;&#x2d;&#97;&#100;&#x6d;&#x69;n@&#x63;&#x63;l&#x2e;&#110;&#x6f;r&#116;&#104;&#119;&#x65;&#115;&#116;e&#x72;&#x6e;.&#101;&#100;u</a></a>.</p>
 <p>The source code is
 <a href="https://github.com/NetLogo/NetLogo" target="_blank">on GitHub, here</a>. Development discussion is
 on the <a href="https://groups.google.com/group/netlogo-devel" target="_blank">netlogo-devel</a> group.</p>
@@ -857,7 +857,7 @@ drastically slows down Swing applications, including NetLogo.</p>
 into power saving mode when you unplug it. (If you do this, your battery won&rsquo;t
 last as long.)</p>
 <p>Another workaround is to run NetLogo with an option recommended by Oracle, by
-editing the NetLogo 7.0.0.vmoptions file, found in the NetLogo directory
+editing the NetLogo 7.0.1.vmoptions file, found in the NetLogo directory
 (under Program Files on your hard drive, unless you installed NetLogo in a
 different location). Add on a new line:</p>
 <pre><code>-Dsun.java2d.ddoffscreen=false
@@ -930,7 +930,7 @@ investigate. We&rsquo;re looking for assistance from you if you run into this pr
 It would be extremely helpful if you could run the following command in the
 &ldquo;Terminal&rdquo; application and send the output in an email to
 <a href="mailto:bugs@ccl.northwestern.edu?subject=Sierra%20NetLogo%206%20Bug">bugs@ccl.northwestern.edu</a>.</p>
-<pre><code>xattr -pl com.apple.quarantine /Applications/NetLogo\ 7.0.0/NetLogo\ 7.0.0.app
+<pre><code>xattr -pl com.apple.quarantine /Applications/NetLogo\ 7.0.1/NetLogo\ 7.0.1.app
 </code></pre>
 <p>running it should give you a single line of output (something like
 <code>com.apple.quarantine: 01e1;58ac6af2;Firefox;F2E0B1E2-D203-4B05-8DF9-ABA58B52EFEA</code>,
@@ -939,7 +939,7 @@ paste this string into the email you send us.</p>
 <p>There is also a partial workaround! Running the following command in the
 Terminal will enable users to run NetLogo without turning Gatekeeper completely
 off. The command is:</p>
-<pre><code>sudo xattr -dr com.apple.quarantine /Applications/NetLogo\ 7.0.0/NetLogo\ 7.0.0.app
+<pre><code>sudo xattr -dr com.apple.quarantine /Applications/NetLogo\ 7.0.1/NetLogo\ 7.0.1.app
 </code></pre>
 <p>Note that if you plan to run NetLogo 3D or HubNet Client you
 may also need to re-run that command once for each of those applications. If the
@@ -1098,11 +1098,11 @@ configuration file for the NetLogo_Console app; on macOS and Linux the configura
 the NetLogo.cfg file.  Although the file location varies by platform, the process for changing it is the same.</p>
 <p>Platform specific notes follow:</p>
 <ul>
-<li><strong>Windows:</strong> The file will typically be in <code>C:\Program Files\NetLogo 7.0.0\app</code>,
+<li><strong>Windows:</strong> The file will typically be in <code>C:\Program Files\NetLogo 7.0.1\app</code>,
 unless you are running 32 bit NetLogo on a 64 bit Windows, then it will be
-in <code>C:\Program Files (x86)\NetLogo 7.0.0\app</code>.</li>
+in <code>C:\Program Files (x86)\NetLogo 7.0.1\app</code>.</li>
 <li><strong>Mac OS X:</strong> The file for NetLogo will be located at:
-<code>/Applications/NetLogo 7.0.0/NetLogo 7.0.0.app/Contents/app/NetLogo 7.0.0.cfg</code> For
+<code>/Applications/NetLogo 7.0.1/NetLogo 7.0.1.app/Contents/app/NetLogo 7.0.1.cfg</code> For
 NetLogo 3D and the other applications, you will find the file in the
 corresponding location for each application package. You can reach the configuration
 file by control-clicking the application in the Finder and choosing &ldquo;Show

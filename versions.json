@@ -1,4 +1,5 @@
 [
+    { "name": "7.0.1", "value": "7.0.1" },
     { "name": "7.0.0", "value": "7.0.0" },
     { "name": "7.0.0-beta2", "value": "7.0.0-beta2" },
     { "name": "6.4", "value": "6.4.0", "urlPrefix": "${CCL}/6.4.0/docs" },

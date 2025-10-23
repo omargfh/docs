@@ -6,7 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.0: BehaviorSpace Guide</title>
+		<title>NetLogo 7.0.1: BehaviorSpace Guide</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -24,7 +24,7 @@
 		<script>
 			window.netlogo = {
 				...(window.netlogo || {}),
-				version: "7.0.0",
+				version: "7.0.1",
 				title: "BehaviorSpace Guide",
 				pdf: false,
 				stringVariables: {
@@ -282,8 +282,8 @@
 				</div>
 				<div class="navbar__actions">
 					<!-- Version / Actions -->
-					<select id="version-select" class="version-select" aria-label="Select version">
-						<option selected value="this">7.0.0</option>
+					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.1">
+						<option selected value="this">7.0.1</option>
 						<!-- See script:expandStringVariables for details on how ${var} works -->
 						<option data-url-prefix="${CCL}/6.4.0/docs" value="6.4.0">6.4</option>
 						<option data-url-prefix="${CCL}/6.3.0/docs" value="6.3.0">6.3.0</option>
@@ -1183,7 +1183,7 @@ requires no extra software installation or configuration.</p>
 <h4><a href="#examples" id="examples" class="section-anchor">Examples</a></h4>
 <p>It is easiest if you create your experiment setup ahead of time in the GUI, so
 it is saved as part of the model. To run an experiment setup saved in a model,
-here is an example command line, run from the NetLogo 7.0.0 installation
+here is an example command line, run from the NetLogo 7.0.1 installation
 folder so the paths to the <code>NetLogo_Console</code> app and <code>Wolf Sheep Simple 5.nlogo</code>
 model are correct.</p>
 <p>The below commands should work as-is in a terminal on macOS and Linux.  On Windows in the
@@ -1284,51 +1284,49 @@ files using XML.</p>
 <p>We don&rsquo;t yet have detailed documentation on authoring experiment setups in XML,
 but if you already have some familiarity with XML, then the following pointers
 may be enough to get you started.</p>
-<p>The structure of BehaviorSpace experiment setups in XML is determined by a
-Document Type Definition (DTD) file. The DTD is stored in NetLogo.jar, as
-<code>system/behaviorspace.dtd</code>. (JAR files are also zip files, so you can extract
-the DTD from the JAR using Java&rsquo;s &ldquo;jar&rdquo; utility or with any program that
-understands zip format.)</p>
+<p>The structure of BehaviorSpace experiment setups in the new model file format as
+of NetLogo 7 is detailed in the <a href="https://github.com/NetLogo/NetLogo/wiki/XML-File-Format" target="_blank">XML File Format Wiki page</a>.
+Prior to NetLogo 7, BehaviorSpace experiments were also defined with XML, however
+the format was slightly different.</p>
 <p>The easiest way to learn what setups look like in XML, though, is to author a
 few of them in BehaviorSpace&rsquo;s GUI, save the model, export them <em>(Since 6.4)</em> and then examine the
 resulting .xml file(s) in a text editor. The experiment setups can also be found
-towards the end of the .nlogo file, in a section that begins and ends with a
+towards the end of the .nlogox file, in a section that begins and ends with an
 <code>experiments</code> tag. Example:</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE experiments SYSTEM &quot;behaviorspace.dtd&quot;&gt;
-&lt;experiments&gt;
-  &lt;experiment name=&quot;My WSP Exploration&quot; repetitions=&quot;5&quot; runMetricsEveryStep=&quot;false&quot;&gt;
+<pre><code class="language-xml">&lt;experiments&gt;
+  &lt;experiment name=&quot;My WSP Exploration&quot; repetitions=&quot;5&quot; runMetricsEveryStep=&quot;false&quot; timeLimit=&quot;2000&quot;&gt;
     &lt;setup&gt;setup&lt;/setup&gt;
     &lt;go&gt;go&lt;/go&gt;
-    &lt;timeLimit steps=&quot;2000&quot;/&gt;
-    &lt;metric&gt;count wolves&lt;/metric&gt;
-    &lt;metric&gt;count sheep&lt;/metric&gt;
-    &lt;metric&gt;sum [grass-amount] of patches&lt;/metric&gt;
-    &lt;enumeratedValueSet variable=&quot;energy-gain-from-grass&quot;&gt;
-      &lt;value value=&quot;2&quot;/&gt;
-    &lt;/enumeratedValueSet&gt;
-    &lt;steppedValueSet variable=&quot;number-of-wolves&quot; first=&quot;5&quot; step=&quot;1&quot; last=&quot;15&quot;/&gt;
-    &lt;enumeratedValueSet variable=&quot;movement-cost&quot;&gt;
-      &lt;value value=&quot;0.5&quot;/&gt;
-    &lt;/enumeratedValueSet&gt;
-    &lt;enumeratedValueSet variable=&quot;energy-gain-from-sheep&quot;&gt;
-      &lt;value value=&quot;5&quot;/&gt;
-    &lt;/enumeratedValueSet&gt;
-    &lt;enumeratedValueSet variable=&quot;number-of-sheep&quot;&gt;
-      &lt;value value=&quot;500&quot;/&gt;
-    &lt;/enumeratedValueSet&gt;
-    &lt;enumeratedValueSet variable=&quot;grass-regrowth-rate&quot;&gt;
-      &lt;value value=&quot;0.3&quot;/&gt;
-    &lt;/enumeratedValueSet&gt;
+    &lt;metrics&gt;
+      &lt;metric&gt;count wolves&lt;/metric&gt;
+      &lt;metric&gt;count sheep&lt;/metric&gt;
+      &lt;metric&gt;sum [grass-amount] of patches&lt;/metric&gt;
+    &lt;/metrics&gt;
+    &lt;constants&gt;
+      &lt;enumeratedValueSet variable=&quot;energy-gain-from-grass&quot;&gt;
+        &lt;value value=&quot;2&quot;/&gt;
+      &lt;/enumeratedValueSet&gt;
+      &lt;steppedValueSet variable=&quot;number-of-wolves&quot; first=&quot;5&quot; step=&quot;1&quot; last=&quot;15&quot;/&gt;
+      &lt;enumeratedValueSet variable=&quot;movement-cost&quot;&gt;
+        &lt;value value=&quot;0.5&quot;/&gt;
+      &lt;/enumeratedValueSet&gt;
+      &lt;enumeratedValueSet variable=&quot;energy-gain-from-sheep&quot;&gt;
+        &lt;value value=&quot;5&quot;/&gt;
+      &lt;/enumeratedValueSet&gt;
+      &lt;enumeratedValueSet variable=&quot;number-of-sheep&quot;&gt;
+        &lt;value value=&quot;500&quot;/&gt;
+      &lt;/enumeratedValueSet&gt;
+      &lt;enumeratedValueSet variable=&quot;grass-regrowth-rate&quot;&gt;
+        &lt;value value=&quot;0.3&quot;/&gt;
+      &lt;/enumeratedValueSet&gt;
+    &lt;/constants&gt;
   &lt;/experiment&gt;
 &lt;/experiments&gt;
 </code></pre>
 <p>In this example, only one experiment setup is given, but you can put as many as
 you want between the beginning and ending <code>experiments</code> tags.</p>
-<p>Between looking at the DTD, and looking at examples you create in the GUI, it
-will hopefully be apparent how to use the tags to specify different kind of
-experiments. The DTD specifies which tags are required and which are optional,
-which may be repeated and which may not, and so forth.</p>
+<p>After looking at examples you create in the GUI, it will hopefully be apparent how
+to use the tags to specify different kinds of experiments.</p>
 <p>If you want to create a setup file for NetLogo 6.3.0 and earlier versions for
 which <strong>Export</strong> is not available you need to know that in a model file the XML for
 experiment setups does not begin with any XML headers, because the not whole file
