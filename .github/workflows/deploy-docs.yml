@@ -91,6 +91,6 @@ jobs:
             Source commit: ${{ github.sha }}
             Branch: ${{ github.ref_name }}
             Distribution size: $(du -sh ../${{ env.DIST_DIR }} | cut -f1)"
-            git push origin prebuild
+            git push origin gh-pages/live-site
             echo "status=deployed" >> $GITHUB_OUTPUT
           fi
