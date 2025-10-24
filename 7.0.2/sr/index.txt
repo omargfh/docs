@@ -1,0 +1,12 @@
+sr:setup sr:setup.html
+sr:run sr:run.html
+sr:runresult sr:runresult.html
+sr:set sr:set.html
+sr:set-agent sr:set-agent.html
+sr:set-agent-data-frame sr:set-agent-data-frame.html
+sr:set-data-frame sr:set-data-frame.html
+sr:set-list sr:set-list.html
+sr:set-named-list sr:set-named-list.html
+sr:set-plot-device sr:set-plot-device.html
+sr:r-home sr:r-home.html
+sr:show-console sr:show-console.html

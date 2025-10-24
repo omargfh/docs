@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="script.js" type="module"></script>
+		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>NetLogo 7.0.2: BehaviorSpace Guide en Español</title>
+		<link rel="stylesheet" href="netlogo.css" type="text/css" />
+		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+		<link rel="shortcut icon" href="favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Docs" />
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<style>
+			select {
+				appearance: base-select;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			window.netlogo = {
+				...(window.netlogo || {}),
+				version: "7.0.2",
+				title: "BehaviorSpace Guide en Español",
+				pdf: false,
+				stringVariables: {
+					"CCL": "https://ccl.northwestern.edu/netlogo"
+				}
+			};
+		</script>
+		<!------------  NAV  ------------>
+		<nav class="navbar">
+			<input id="menu-toggle" type="checkbox" hidden />
+			<div class="navbar__row">
+				<div class="navbar__anchor">
+					<label class="hamburger" for="menu-toggle"> <span></span><span></span><span></span> </label>
+					<a href="./" class="navbar__brand"
+						><svg width="261" height="50" viewBox="0 0 261 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M76.6661 13V-0.340001H79.4261L86.2861 8.9L85.3261 10.9V-0.340001H88.3061V13H85.8661L78.8861 3.88L79.6461 2.42V13H76.6661ZM95.6188 13.3C94.6054 13.3 93.7054 13.0933 92.9188 12.68C92.1454 12.2533 91.5388 11.6533 91.0988 10.88C90.6721 10.0933 90.4588 9.16 90.4588 8.08C90.4588 6.32 90.8921 4.96 91.7588 4C92.6388 3.02667 93.8921 2.54 95.5188 2.54C96.6388 2.54 97.5388 2.78 98.2188 3.26C98.9121 3.74 99.4188 4.44 99.7388 5.36C100.059 6.28 100.212 7.4 100.199 8.72H92.4988L92.1788 6.82H97.7388L97.2988 7.76C97.2854 6.68 97.1321 5.92 96.8388 5.48C96.5454 5.04 96.0654 4.82 95.3988 4.82C95.0254 4.82 94.6854 4.91333 94.3788 5.1C94.0854 5.28667 93.8521 5.6 93.6788 6.04C93.5188 6.46667 93.4388 7.06 93.4388 7.82C93.4388 8.78 93.6654 9.52 94.1188 10.04C94.5854 10.56 95.3254 10.82 96.3388 10.82C96.7121 10.82 97.0788 10.78 97.4388 10.7C97.8121 10.6067 98.1588 10.5 98.4788 10.38C98.7988 10.26 99.0721 10.1533 99.2988 10.06V12.62C98.8188 12.82 98.2788 12.98 97.6788 13.1C97.0921 13.2333 96.4054 13.3 95.6188 13.3ZM106.409 13.4C105.236 13.4 104.363 13.1267 103.789 12.58C103.216 12.02 102.929 11.2333 102.929 10.22V5.16H101.449V2.88H102.929V0.0999992H106.049V2.88H108.269V5.16H106.049V9.84C106.049 10.1867 106.123 10.4467 106.269 10.62C106.416 10.78 106.663 10.86 107.009 10.86C107.209 10.86 107.429 10.82 107.669 10.74C107.909 10.66 108.109 10.56 108.269 10.44V13C107.989 13.1467 107.683 13.2467 107.349 13.3C107.029 13.3667 106.716 13.4 106.409 13.4ZM110.631 13V-0.340001H113.871V10.46H119.671V13H110.631ZM126.185 13.3C124.478 13.3 123.191 12.8467 122.325 11.94C121.471 11.02 121.045 9.67333 121.045 7.9C121.045 5.99333 121.478 4.62667 122.345 3.8C123.225 2.96 124.505 2.54 126.185 2.54C127.318 2.54 128.265 2.73333 129.025 3.12C129.798 3.49333 130.378 4.07333 130.765 4.86C131.165 5.64667 131.365 6.66 131.365 7.9C131.365 9.67333 130.918 11.02 130.025 11.94C129.131 12.8467 127.851 13.3 126.185 13.3ZM126.185 10.92C126.678 10.92 127.085 10.8067 127.405 10.58C127.738 10.34 127.985 10 128.145 9.56C128.318 9.10667 128.405 8.55333 128.405 7.9C128.405 7.15333 128.318 6.56667 128.145 6.14C127.985 5.7 127.738 5.38667 127.405 5.2C127.071 5 126.665 4.9 126.185 4.9C125.678 4.9 125.265 5 124.945 5.2C124.625 5.4 124.385 5.72 124.225 6.16C124.078 6.58667 124.005 7.16667 124.005 7.9C124.005 8.91333 124.178 9.67333 124.525 10.18C124.885 10.6733 125.438 10.92 126.185 10.92ZM137.302 13.3C136.382 13.2467 135.588 13.0333 134.922 12.66C134.268 12.2867 133.755 11.74 133.382 11.02C133.022 10.2867 132.842 9.36667 132.842 8.26C132.842 7.14 132.982 6.21333 133.262 5.48C133.542 4.73333 133.928 4.15333 134.422 3.74C134.928 3.32667 135.535 3.03333 136.242 2.86C136.948 2.68667 137.735 2.6 138.602 2.6C139.442 2.6 140.175 2.70667 140.802 2.92C141.428 3.13333 141.915 3.44 142.262 3.84C142.608 4.24 142.782 4.73333 142.782 5.32V13.12C142.782 13.8267 142.668 14.4467 142.442 14.98C142.215 15.5267 141.875 15.98 141.422 16.34C140.982 16.7133 140.442 16.9933 139.802 17.18C139.175 17.3667 138.448 17.46 137.622 17.46C136.728 17.46 135.962 17.3933 135.322 17.26C134.695 17.14 134.215 16.9867 133.882 16.8V14.18C134.082 14.26 134.375 14.3667 134.762 14.5C135.148 14.6333 135.582 14.74 136.062 14.82C136.542 14.9133 137.022 14.96 137.502 14.96C138.128 14.96 138.608 14.8733 138.942 14.7C139.288 14.5267 139.528 14.2933 139.662 14C139.795 13.7067 139.862 13.3733 139.862 13V11.36L140.442 11.78C140.228 12.0867 139.975 12.3533 139.682 12.58C139.388 12.8067 139.042 12.98 138.642 13.1C138.255 13.2333 137.808 13.3 137.302 13.3ZM138.062 11.06C138.408 11.06 138.728 11.0267 139.022 10.96C139.315 10.88 139.595 10.7667 139.862 10.62V5.98C139.862 5.7 139.782 5.48667 139.622 5.34C139.462 5.19333 139.262 5.09333 139.022 5.04C138.782 4.98667 138.528 4.96 138.262 4.96C137.648 4.96 137.162 5.09333 136.802 5.36C136.455 5.62667 136.202 6 136.042 6.48C135.895 6.94667 135.822 7.48 135.822 8.08C135.822 9 136.028 9.72667 136.442 10.26C136.855 10.7933 137.395 11.06 138.062 11.06ZM149.837 13.3C148.13 13.3 146.844 12.8467 145.977 11.94C145.124 11.02 144.697 9.67333 144.697 7.9C144.697 5.99333 145.13 4.62667 145.997 3.8C146.877 2.96 148.157 2.54 149.837 2.54C150.97 2.54 151.917 2.73333 152.677 3.12C153.45 3.49333 154.03 4.07333 154.417 4.86C154.817 5.64667 155.017 6.66 155.017 7.9C155.017 9.67333 154.57 11.02 153.677 11.94C152.784 12.8467 151.504 13.3 149.837 13.3ZM149.837 10.92C150.33 10.92 150.737 10.8067 151.057 10.58C151.39 10.34 151.637 10 151.797 9.56C151.97 9.10667 152.057 8.55333 152.057 7.9C152.057 7.15333 151.97 6.56667 151.797 6.14C151.637 5.7 151.39 5.38667 151.057 5.2C150.724 5 150.317 4.9 149.837 4.9C149.33 4.9 148.917 5 148.597 5.2C148.277 5.4 148.037 5.72 147.877 6.16C147.73 6.58667 147.657 7.16667 147.657 7.9C147.657 8.91333 147.83 9.67333 148.177 10.18C148.537 10.6733 149.09 10.92 149.837 10.92Z"
+								fill="black"
+							/>
+							<path
+								d="M83.9923 44.28C81.6776 44.28 79.8763 43.5987 78.5883 42.236C77.319 40.8733 76.6843 38.9227 76.6843 36.384V25.324H78.7003V36.496C78.7003 38.4933 79.1483 39.9773 80.0443 40.948C80.9403 41.9 82.2563 42.376 83.9923 42.376C85.7283 42.376 87.0536 41.9 87.9683 40.948C88.883 39.9773 89.3403 38.4933 89.3403 36.496V25.324H91.3003V36.384C91.3003 38.0827 91.011 39.52 90.4323 40.696C89.8536 41.872 89.023 42.768 87.9403 43.384C86.8576 43.9813 85.5416 44.28 83.9923 44.28ZM101.083 44.28C100.15 44.28 99.3564 44.2147 98.703 44.084C98.0497 43.9533 97.4617 43.7667 96.939 43.524C96.4163 43.2813 95.847 43.0013 95.231 42.684V40.5C95.8283 41.004 96.631 41.452 97.639 41.844C98.647 42.236 99.823 42.432 101.167 42.432C102.586 42.432 103.612 42.1333 104.247 41.536C104.9 40.92 105.227 40.1453 105.227 39.212C105.227 38.428 105.012 37.8027 104.583 37.336C104.154 36.8507 103.603 36.4587 102.931 36.16C102.259 35.8427 101.55 35.544 100.803 35.264C100.168 35.04 99.5337 34.8067 98.899 34.564C98.283 34.3027 97.723 33.9853 97.219 33.612C96.715 33.22 96.3137 32.7253 96.015 32.128C95.7163 31.512 95.567 30.7467 95.567 29.832C95.567 29.328 95.6603 28.796 95.847 28.236C96.0523 27.676 96.3697 27.1533 96.799 26.668C97.247 26.1827 97.835 25.7907 98.563 25.492C99.3097 25.1933 100.215 25.044 101.279 25.044C102.007 25.044 102.623 25.1 103.127 25.212C103.65 25.3053 104.144 25.4547 104.611 25.66C105.078 25.8467 105.6 26.08 106.179 26.36V28.432C105.694 28.152 105.227 27.9 104.779 27.676C104.35 27.4333 103.864 27.2467 103.323 27.116C102.8 26.9667 102.156 26.892 101.391 26.892C100.476 26.892 99.739 27.0227 99.179 27.284C98.6377 27.5453 98.2363 27.8907 97.975 28.32C97.7323 28.7493 97.611 29.2067 97.611 29.692C97.611 30.4573 97.779 31.064 98.115 31.512C98.4697 31.96 98.955 32.3333 99.571 32.632C100.206 32.912 100.934 33.192 101.755 33.472C102.408 33.696 103.062 33.948 103.715 34.228C104.368 34.4893 104.956 34.8253 105.479 35.236C106.02 35.628 106.45 36.132 106.767 36.748C107.103 37.3453 107.271 38.092 107.271 38.988C107.271 39.828 107.084 40.6587 106.711 41.48C106.338 42.2827 105.703 42.9547 104.807 43.496C103.911 44.0187 102.67 44.28 101.083 44.28ZM111.042 44V25.324H122.83V27.228H113.058V33.668H121.654V35.628H113.058V42.096H122.83V44H111.042ZM127.032 44V25.324H134.704C136.533 25.324 137.905 25.7813 138.82 26.696C139.753 27.6107 140.22 28.964 140.22 30.756C140.22 31.8387 139.996 32.8 139.548 33.64C139.1 34.48 138.474 35.1427 137.672 35.628C136.869 36.1133 135.926 36.356 134.844 36.356L135.684 35.796L141.06 44H138.68L133.136 35.432L134.144 36.468H129.048V44H127.032ZM129.048 34.564H133.78C135.329 34.564 136.449 34.256 137.14 33.64C137.849 33.0053 138.204 32.0907 138.204 30.896C138.204 29.776 137.942 28.8893 137.42 28.236C136.897 27.564 135.917 27.228 134.48 27.228H129.048V34.564ZM152.257 44V25.324H154.441L161.357 35.936L159.985 36.244L167.293 25.324H169.477V44H167.461V27.34H168.357L160.657 38.148L153.545 27.564L154.273 26.528V44H152.257ZM172.141 44L179.589 25.324H181.605L189.025 44H186.869L180.401 27.2L180.821 27.144L174.325 44H172.141ZM175.417 38.176L176.285 36.244H185.441L185.581 38.176H175.417ZM191.674 44V25.324H193.97L205.618 41.76L205.114 42.544V25.324H207.13V44H204.862L192.766 26.948L193.69 26.08V44H191.674ZM218.909 44.28C216.594 44.28 214.793 43.5987 213.505 42.236C212.235 40.8733 211.601 38.9227 211.601 36.384V25.324H213.617V36.496C213.617 38.4933 214.065 39.9773 214.961 40.948C215.857 41.9 217.173 42.376 218.909 42.376C220.645 42.376 221.97 41.9 222.885 40.948C223.799 39.9773 224.257 38.4933 224.257 36.496V25.324H226.217V36.384C226.217 38.0827 225.927 39.52 225.349 40.696C224.77 41.872 223.939 42.768 222.857 43.384C221.774 43.9813 220.458 44.28 218.909 44.28ZM228.887 44L236.335 25.324H238.351L245.771 44H243.615L237.147 27.2L237.567 27.144L231.071 44H228.887ZM232.163 38.176L233.031 36.244H242.187L242.327 38.176H232.163ZM248.419 44V25.324H250.435V42.04H259.983V44H248.419Z"
+								fill="black"
+							/>
+							<g clip-path="url(#clip0_1_80)">
+								<g clip-path="url(#paint0_angular_1_80_clip_path)" data-figma-skip-parse="true">
+									<g transform="matrix(0.0191234 -0.00861445 0.00861444 0.0191234 24.5732 8.78025)">
+										<foreignObject x="-1071.43" y="-1071.43" width="2142.86" height="2142.86"
+											><div
+												xmlns="http://www.w3.org/1999/xhtml"
+												style="
+													background: conic-gradient(
+														from 90deg,
+														rgba(200, 2, 0, 1) 0deg,
+														rgba(195, 0, 0, 1) 0.0794891deg,
+														rgba(191, 0, 0, 1) 116.448deg,
+														rgba(223, 24, 0, 1) 127.48deg,
+														rgba(223, 24, 0, 1) 235.378deg,
+														rgba(255, 22, 0, 1) 240.998deg,
+														rgba(243, 21, 0, 1) 359.438deg,
+														rgba(200, 2, 0, 1) 360deg
+													);
+													height: 100%;
+													width: 100%;
+													opacity: 1;
+												"
+											></div
+										></foreignObject>
+									</g>
+								</g>
+								<path
+									d="M43.6966 0.165806L10.8397 0.178574L21.1584 10.3186L21.9154 24.7658L43.6966 0.165806Z"
+									data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;transform&#34;:{&#34;m00&#34;:38.246723175048828,&#34;m01&#34;:17.228889465332031,&#34;m02&#34;:-3.1645612716674805,&#34;m10&#34;:-17.228891372680664,&#34;m11&#34;:38.246719360351562,&#34;m12&#34;:-1.7286592721939087},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
+								/>
+							</g>
+							<g clip-path="url(#clip1_1_80)">
+								<g clip-path="url(#paint1_angular_1_80_clip_path)" data-figma-skip-parse="true">
+									<g transform="matrix(0.0191234 -0.00861445 0.00861444 0.0191234 35.8408 33.4802)">
+										<foreignObject x="-1071.43" y="-1071.43" width="2142.86" height="2142.86"
+											><div
+												xmlns="http://www.w3.org/1999/xhtml"
+												style="
+													background: conic-gradient(
+														from 90deg,
+														rgba(200, 2, 0, 1) 0deg,
+														rgba(195, 0, 0, 1) 0.0794891deg,
+														rgba(191, 0, 0, 1) 116.448deg,
+														rgba(223, 24, 0, 1) 127.48deg,
+														rgba(223, 24, 0, 1) 235.378deg,
+														rgba(255, 22, 0, 1) 240.998deg,
+														rgba(243, 21, 0, 1) 359.438deg,
+														rgba(200, 2, 0, 1) 360deg
+													);
+													height: 100%;
+													width: 100%;
+													opacity: 1;
+												"
+											></div
+										></foreignObject>
+									</g>
+								</g>
+								<path
+									d="M54.9642 24.8658L22.1072 24.8785L32.4259 35.0185L33.183 49.4657L54.9642 24.8658Z"
+									data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;transform&#34;:{&#34;m00&#34;:38.246723175048828,&#34;m01&#34;:17.228889465332031,&#34;m02&#34;:8.1030168533325195,&#34;m10&#34;:-17.228891372680664,&#34;m11&#34;:38.246719360351562,&#34;m12&#34;:22.971292495727539},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
+								/>
+							</g>
+							<g clip-path="url(#clip2_1_80)">
+								<g clip-path="url(#paint2_angular_1_80_clip_path)" data-figma-skip-parse="true">
+									<g transform="matrix(0.012641 -0.00569436 0.00569436 0.012641 9.15805 30.5895)">
+										<foreignObject x="-1071.43" y="-1071.43" width="2142.86" height="2142.86"
+											><div
+												xmlns="http://www.w3.org/1999/xhtml"
+												style="
+													background: conic-gradient(
+														from 90deg,
+														rgba(200, 2, 0, 1) 0deg,
+														rgba(195, 0, 0, 1) 0.0794891deg,
+														rgba(191, 0, 0, 1) 116.448deg,
+														rgba(223, 24, 0, 1) 127.48deg,
+														rgba(223, 24, 0, 1) 235.378deg,
+														rgba(255, 22, 0, 1) 240.998deg,
+														rgba(243, 21, 0, 1) 359.438deg,
+														rgba(200, 2, 0, 1) 360deg
+													);
+													height: 100%;
+													width: 100%;
+													opacity: 1;
+												"
+											></div
+										></foreignObject>
+									</g>
+								</g>
+								<path
+									d="M21.7991 24.8951L0.0798187 24.9035L6.90073 31.6063L7.40114 41.1563L21.7991 24.8951Z"
+									data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;transform&#34;:{&#34;m00&#34;:25.282018661499023,&#34;m01&#34;:11.388715744018555,&#34;m02&#34;:-9.1773138046264648,&#34;m10&#34;:-11.388717651367188,&#34;m11&#34;:25.282012939453125,&#34;m12&#34;:23.6428222656250},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
+								/>
+							</g>
+							<g clip-path="url(#clip3_1_80)">
+								<g clip-path="url(#paint3_angular_1_80_clip_path)" data-figma-skip-parse="true">
+									<g transform="matrix(0.012641 -0.00569436 0.00569436 0.012641 53.6131 9.85192)">
+										<foreignObject x="-1071.43" y="-1071.43" width="2142.86" height="2142.86"
+											><div
+												xmlns="http://www.w3.org/1999/xhtml"
+												style="
+													background: conic-gradient(
+														from 90deg,
+														rgba(200, 2, 0, 1) 0deg,
+														rgba(195, 0, 0, 1) 0.0794891deg,
+														rgba(191, 0, 0, 1) 116.448deg,
+														rgba(223, 24, 0, 1) 127.48deg,
+														rgba(223, 24, 0, 1) 235.378deg,
+														rgba(255, 22, 0, 1) 240.998deg,
+														rgba(243, 21, 0, 1) 359.438deg,
+														rgba(200, 2, 0, 1) 360deg
+													);
+													height: 100%;
+													width: 100%;
+													opacity: 1;
+												"
+											></div
+										></foreignObject>
+									</g>
+								</g>
+								<path
+									d="M66.2541 4.15756L44.5349 4.166L51.3558 10.8688L51.8562 20.4187L66.2541 4.15756Z"
+									data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.76470589637756348,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.00022080302005633712},{&#34;color&#34;:{&#34;r&#34;:0.75082629919052124,&#34;g&#34;:0.0,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.32346612215042114},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.35411190986633301},{&#34;color&#34;:{&#34;r&#34;:0.87450981140136719,&#34;g&#34;:0.094117648899555206,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.65382820367813110},{&#34;color&#34;:{&#34;r&#34;:1.0,&#34;g&#34;:0.086419761180877686,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.66943931579589844},{&#34;color&#34;:{&#34;r&#34;:0.95294117927551270,&#34;g&#34;:0.082352943718433380,&#34;b&#34;:0.0,&#34;a&#34;:1.0},&#34;position&#34;:0.99844002723693848}],&#34;transform&#34;:{&#34;m00&#34;:25.282016754150391,&#34;m01&#34;:11.388714790344238,&#34;m02&#34;:35.277732849121094,&#34;m10&#34;:-11.388716697692871,&#34;m11&#34;:25.282012939453125,&#34;m12&#34;:2.9052729606628418},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;visible&#34;:true}"
+								/>
+							</g>
+							<defs>
+								<clipPath id="paint0_angular_1_80_clip_path">
+									<path d="M43.6966 0.165806L10.8397 0.178574L21.1584 10.3186L21.9154 24.7658L43.6966 0.165806Z" />
+								</clipPath>
+								<clipPath id="paint1_angular_1_80_clip_path">
+									<path d="M54.9642 24.8658L22.1072 24.8785L32.4259 35.0185L33.183 49.4657L54.9642 24.8658Z" />
+								</clipPath>
+								<clipPath id="paint2_angular_1_80_clip_path">
+									<path d="M21.7991 24.8951L0.0798187 24.9035L6.90073 31.6063L7.40114 41.1563L21.7991 24.8951Z" />
+								</clipPath>
+								<clipPath id="paint3_angular_1_80_clip_path">
+									<path d="M66.2541 4.15756L44.5349 4.166L51.3558 10.8688L51.8562 20.4187L66.2541 4.15756Z" />
+								</clipPath>
+								<clipPath id="clip0_1_80">
+									<rect width="36" height="36" fill="white" transform="translate(6.23242 -2.69995) rotate(-24.25)" />
+								</clipPath>
+								<clipPath id="clip1_1_80">
+									<rect width="36" height="36" fill="white" transform="translate(17.5 22) rotate(-24.25)" />
+								</clipPath>
+								<clipPath id="clip2_1_80">
+									<rect width="24" height="24" fill="white" transform="translate(-3.10001 22.95) rotate(-24.25)" />
+								</clipPath>
+								<clipPath id="clip3_1_80">
+									<rect width="20" height="20" fill="white" transform="translate(44 3.21437) rotate(-24.25)" />
+								</clipPath>
+							</defs>
+						</svg>
+					</a>
+				</div>
+				<div class="visible-lg">
+					<div class="navbar__links">
+	<!-- Intro -->
+	<div class="navbar__item">
+		<a href="./">Home</a>
+	</div>
+	<!-- Learning -->
+	<div class="navbar__item">
+		<a href="whatis.html">Learn NetLogo</a>
+		<div class="dropdown__menu">
+			<a href="whatis.html">What is NetLogo?</a>
+			<a href="sample.html">Tutorial #0 Sample Model</a>
+			<a href="tutorial1.html">Tutorial #1 Models</a>
+			<a href="tutorial2.html">Tutorial #2 Commands</a>
+			<a href="tutorial3.html">Tutorial #3 Procedures</a>
+		</div>
+	</div>
+	<!-- Reference -->
+	<div class="navbar__item">
+		<a href="dictionary.html">Documentation</a>
+		<div class="dropdown__menu">
+			<a href="dictionary.html">NetLogo Dictionary</a>
+			<a href="interface.html">Interface Guide</a>
+			<a href="interfacetab.html">Interface Tab Guide</a>
+			<a href="infotab.html">Info Tab Guide</a>
+			<a href="codetab.html">Code Tab Guide</a>
+			<a href="programming.html">Programming Guide</a>
+			<a href="transition.html">Transition Guide</a>
+			<a href="scaladoc">Scaladoc</a>
+		</div>
+	</div>
+	<!-- Features -->
+	<div class="navbar__item">
+		<a href="extension-manager.html">Advanced Tools</a>
+		<div class="dropdown__menu" style="column-count: 2; column-gap: 1rem; row-gap: 0.5rem">
+			<a href="extension-manager.html">Extension Manager</a>
+			<a href="shapes.html">Shapes Editor</a>
+			<a href="behaviorspace.html">BehaviorSpace</a>
+			<a href="systemdynamics.html">System Dynamics</a>
+			<a href="hubnet.html">HubNet</a>
+			<a href="hubnet-authoring.html">HubNet Authoring</a>
+			<a href="logging.html">Logging</a>
+			<a href="controlling.html">Controlling</a>
+			<a href="mathematica.html">Mathematica Link</a>
+			<a href="3d.html">NetLogo 3D</a>
+			<a href="hpc.html">Cluster Computing (HPC)</a>
+		</div>
+	</div>
+	<!-- Extensions -->
+	<div class="navbar__item">
+		<a href="extensions.html">Extensions</a>
+		<div class="dropdown__menu" style="column-count: 2; column-gap: 1rem; row-gap: 0.5rem">
+			<a href="extensions.html">Extensions Guide</a>
+			<a href="arduino.html">Arduino</a>
+			<a href="array.html">Array</a>
+			<a href="bitmap.html">Bitmap</a>
+			<a href="csv.html">CSV</a>
+			<a href="gis.html">GIS</a>
+			<a href="gogo.html">GoGo</a>
+			<a href="ls.html">LevelSpace</a>
+			<a href="matrix.html">Matrix</a>
+			<a href="nw.html">Networks</a>
+			<a href="palette.html">Palette</a>
+			<a href="profiler.html">Profiler</a>
+			<a href="py.html">Python</a>
+			<a href="resource.html">Resource</a>
+			<a href="rnd.html">Rnd</a>
+			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
+			<a href="table.html">Table</a>
+			<a href="time.html">Time</a>
+			<a href="vid.html">Vid</a>
+			<a href="view2.5d.html">View2.5D</a>
+		</div>
+	</div>
+	<!-- FAQ -->
+	<div class="navbar__item"><a href="faq.html">FAQ</a></div>
+</div>
+				</div>
+				<div class="navbar__actions">
+					<!-- Version / Actions -->
+					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.2">
+						<option selected value="this">7.0.2</option>
+						<!-- See script:expandStringVariables for details on how ${var} works -->
+						<option data-url-prefix="${CCL}/6.4.0/docs" value="6.4.0">6.4</option>
+						<option data-url-prefix="${CCL}/6.3.0/docs" value="6.3.0">6.3.0</option>
+						<option data-url-prefix="${CCL}/6.2.2/docs" value="6.2.2">6.2.2</option>
+						<option data-url-prefix="${CCL}/6.1.1/docs" value="6.1.1">6.1.1</option>
+						<option data-url-prefix="${CCL}/6.0.4/docs" value="6.0.4">6.0.4</option>
+						<option data-url-prefix="${CCL}/6.0-BETA1/docs" value="6.0-BETA1">6.0beta</option>
+						<option data-url-prefix="${CCL}/5.3.1/docs" value="5.3.1">5.3.1</option>
+						<option data-url-prefix="${CCL}/5.2.1/docs" value="5.2.1">5.2.1</option>
+						<option data-url-prefix="${CCL}/5.1.0/docs" value="5.1.0">5.1.0</option>
+						<option data-url-prefix="${CCL}/5.0/docs" value="5.0">5.0</option>
+						<option data-url-prefix="${CCL}/4.1/docs" value="4.1">4.1</option>
+						<option data-url-prefix="${CCL}/4.0/docs" value="4.0">4.0</option>
+						<option data-url-prefix="${CCL}/3.1/docs" value="3.1">3.1</option>
+						<option data-url-prefix="${CCL}/3.0/docs" value="3.0">3.0</option>
+						<option value="2.1" disabled>2.1</option>
+						<option value="2.0" disabled>2.0</option>
+						<option value="1.2" disabled>1.2</option>
+						<option value="1.1" disabled>1.1</option>
+						<option value="1.0" disabled>1.0</option>
+					</select>
+					<button class="navbar__action hidden" id="searchBtn" aria-label="Search (⌘K)">
+						<!-- Search icon -->
+						<svg viewBox="0 0 24 24">
+							<path
+								d="M10 2a8 8 0 0 1 5.29 13.93l5.4 5.4-1.42 1.42-5.4-5.4A8 8 0 1 1 10 2m0 2a6 6 0 1 0 0 12A6 6 0 0 0 10 4z"
+							/>
+						</svg>
+					</button>
+					<a class="navbar__action" href="https://github.com/NetLogo/NetLogo" aria-label="GitHub" target="_blank">
+						<!-- GitHub logo -->
+						<svg viewBox="0 0 24 24">
+							<path
+								d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.84 2.8 1.31 3.48 1.01.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.23-3.24-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.32 11.32 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.92 1.23 3.24 0 4.63-2.8 5.66-5.47 5.96.43.38.81 1.12.81 2.25v3.34c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"
+							/>
+						</svg>
+					</a>
+					<a
+						class="navbar__action"
+						href="NetLogo%20User%20Manual.pdf"
+						aria-label="User Manual"
+						title="User Manual PDF"
+						target="_blank"
+					>
+						<!-- User Manual icon -->
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+							<!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+							<path
+								d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"
+							/>
+						</svg>
+					</a>
+				</div>
+			</div>
+			<div class="navbar__links__mobile hidden-lg">
+				<div class="navbar__links">
+	<!-- Intro -->
+	<div class="navbar__item">
+		<a href="./">Home</a>
+	</div>
+	<!-- Learning -->
+	<div class="navbar__item">
+		<a href="whatis.html">Learn NetLogo</a>
+		<div class="dropdown__menu">
+			<a href="whatis.html">What is NetLogo?</a>
+			<a href="sample.html">Tutorial #0 Sample Model</a>
+			<a href="tutorial1.html">Tutorial #1 Models</a>
+			<a href="tutorial2.html">Tutorial #2 Commands</a>
+			<a href="tutorial3.html">Tutorial #3 Procedures</a>
+		</div>
+	</div>
+	<!-- Reference -->
+	<div class="navbar__item">
+		<a href="dictionary.html">Documentation</a>
+		<div class="dropdown__menu">
+			<a href="dictionary.html">NetLogo Dictionary</a>
+			<a href="interface.html">Interface Guide</a>
+			<a href="interfacetab.html">Interface Tab Guide</a>
+			<a href="infotab.html">Info Tab Guide</a>
+			<a href="codetab.html">Code Tab Guide</a>
+			<a href="programming.html">Programming Guide</a>
+			<a href="transition.html">Transition Guide</a>
+			<a href="scaladoc">Scaladoc</a>
+		</div>
+	</div>
+	<!-- Features -->
+	<div class="navbar__item">
+		<a href="extension-manager.html">Advanced Tools</a>
+		<div class="dropdown__menu" style="column-count: 2; column-gap: 1rem; row-gap: 0.5rem">
+			<a href="extension-manager.html">Extension Manager</a>
+			<a href="shapes.html">Shapes Editor</a>
+			<a href="behaviorspace.html">BehaviorSpace</a>
+			<a href="systemdynamics.html">System Dynamics</a>
+			<a href="hubnet.html">HubNet</a>
+			<a href="hubnet-authoring.html">HubNet Authoring</a>
+			<a href="logging.html">Logging</a>
+			<a href="controlling.html">Controlling</a>
+			<a href="mathematica.html">Mathematica Link</a>
+			<a href="3d.html">NetLogo 3D</a>
+			<a href="hpc.html">Cluster Computing (HPC)</a>
+		</div>
+	</div>
+	<!-- Extensions -->
+	<div class="navbar__item">
+		<a href="extensions.html">Extensions</a>
+		<div class="dropdown__menu" style="column-count: 2; column-gap: 1rem; row-gap: 0.5rem">
+			<a href="extensions.html">Extensions Guide</a>
+			<a href="arduino.html">Arduino</a>
+			<a href="array.html">Array</a>
+			<a href="bitmap.html">Bitmap</a>
+			<a href="csv.html">CSV</a>
+			<a href="gis.html">GIS</a>
+			<a href="gogo.html">GoGo</a>
+			<a href="ls.html">LevelSpace</a>
+			<a href="matrix.html">Matrix</a>
+			<a href="nw.html">Networks</a>
+			<a href="palette.html">Palette</a>
+			<a href="profiler.html">Profiler</a>
+			<a href="py.html">Python</a>
+			<a href="resource.html">Resource</a>
+			<a href="rnd.html">Rnd</a>
+			<a href="sr.html">Simple R</a>
+			<a href="sound.html">Sound</a>
+			<a href="table.html">Table</a>
+			<a href="time.html">Time</a>
+			<a href="vid.html">Vid</a>
+			<a href="view2.5d.html">View2.5D</a>
+		</div>
+	</div>
+	<!-- FAQ -->
+	<div class="navbar__item"><a href="faq.html">FAQ</a></div>
+</div>
+			</div>
+		</nav>
+		<!-- ------------ SEARCH MODAL ------------ -->
+		<section class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-label="Search">
+			<div class="search-box">
+				<input type="text" placeholder="Type to search… Esc to close" autofocus />
+			</div>
+		</section>
+		<!-- ------------ END NAVBAR ------------ -->
+		<footer class="nl-container-full mt-5 landing px-standard gap-3 hidden-important">
+			<div class="nl-col nl-col-lg-4 px-1 py-2">
+				<div class="nl-col nl-col-lg-3 flex flex-col align-items-left">
+					<img
+						class="h-fit mt-0 mx-0"
+						src="images/user-manual-logo.png"
+						alt="User Manual Logo"
+						style="max-width: 300px"
+					/>
+					<hr />
+					<p>
+						NetLogo is a programmable modeling environment for simulating natural and social phenomena. It was authored
+						by Uri Wilensky in 1999 and has been in continuous development ever since at the Center for Connected
+						Learning and Computer-Based Modeling.
+					</p>
+				</div>
+			</div>
+			<div class="nl-col nl-col-lg-3 px-1 py-2">
+				<div>
+					<h5 class="mt-0">Related Links</h5>
+					<ul>
+						<li>
+							<a href="https://www.netlogo.org/">NetLogo Home</a>
+						</li>
+						<li>
+							<a href="https://ccl.northwestern.edu/">Center for Connected Learning</a>
+						</li>
+						<li>
+							<a href="https://www.netlogoweb.org/">NetLogo Web</a>
+						</li>
+						<li>
+							<a href="https://ccl.northwestern.edu/nettangoweb/">NetTango Web</a>
+						</li>
+						<li>
+							<a href="3d.html">NetLogo 3D</a>
+						</li>
+						<li>
+							<a href="https://www.behaviorsearch.org/">BehaviorSearch</a>
+						</li>
+						<li>
+							<a href="contact.html">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="nl-col nl-col-lg-5 px-1 py-2">
+				<p id="copyright" class="mt-2">
+					Copyright © 1999- Uri Wilensky and the
+					<a href="https://ccl.northwestern.edu/">Center for Connected Learning and Computer-Based Modeling</a> at
+					<a href="https://www.northwestern.edu/">Northwestern University</a>. All rights reserved.
+				</p>
+				<p>
+					This program is free software; you can redistribute it and/or modify it under the terms of the GNU General
+					Public License as published by the Free Software Foundation; either version 2 of the
+					<a href="copyright.html">License</a>, or (at your option) any later version.
+				</p>
+				<p>
+					Commercial licenses are also available. To inquire about commercial licenses, please contact Uri Wilensky at
+					<a href="mailto:netlogo-commercial-admin@ccl.northwestern.edu"
+						>netlogo-commercial-admin@ccl.northwestern.edu</a
+					>.
+				</p>
+				<p>For more information, visit the <a href="https://www.netlogo.org/">NetLogo website</a>.</p>
+			</div>
+		</footer>
+		<script src="scripts/highlight-nl.min.js" type="text/javascript"></script>
+		<script>
+			(function () {
+				document.addEventListener('DOMContentLoaded', function () {
+					const highlightNL = require('highlight-nl');
+					let codeElems = Array.from(document.querySelectorAll('pre code'));
+					codeElems = [
+						...codeElems,
+						...Array.from(document.querySelectorAll('pre')).filter(
+							(elem) => elem.children.length === 0 && elem.innerText.trim() !== ''
+						),
+					];
+					codeElems = [
+						...codeElems,
+						...Array.from(document.querySelectorAll('code:not(pre code)')).filter(
+							(e) => e.innerText.split(' ').length > 1
+						),
+					];
+					codeElems.forEach((elem) => {
+						let html = highlightNL(elem.innerText);
+						elem.innerHTML = html;
+					});
+				});
+			})();
+		</script>
+	</body>
+</html>
+<main class="prose">
+<h1><a href="#espacio-conductual" id="espacio-conductual" class="section-anchor">Espacio-Conductual</a></h1>
+<p>Esta guía consta de tres partes:</p>
+<ul>
+<li><a href="#qué-es-espacio-conductual"><strong>¿Qué es Espacio-Conductual?</strong></a>: Describe la herramienta en términos generales,
+incluyendo las ideas y principios que la sustentan.</li>
+<li><a href="#cómo-funciona"><strong>Cómo funciona</strong></a>: Te guía en el uso de la herramienta y destaca
+sus funciones más utilizadas.</li>
+<li><a href="#uso-avanzado"><strong>Uso avanzado</strong></a>: Te indica cómo usar Espacio-Conductual desde la línea de comando
+o desde tu propio código de Java.</li>
+</ul>
+<p>Se añadieron varias funciones nuevas en NetLogo 6.4:</p>
+<ul>
+<li><a href="#sintaxis-de-subexperimento"><strong>Sintaxis de subexperimento</strong></a>: Una sintaxis que permite ejecutar combinaciones
+de parámetros por separado, en lugar de expandirlos de forma combinatoria.</li>
+<li><a href="#ejecutar-indicadores-cuando"><strong>Ejecutar indicadores cuando</strong></a>: Permite el uso de un reportero para
+registrar mediciones de manera condicional.</li>
+<li><a href="#comandos-pre-experimento"><strong>Comandos pre-experimento</strong></a>: Se ejecutan antes del inicio del experimento.</li>
+<li><a href="#comandos-post-experimento"><strong>Comandos post-experimento</strong></a>: Se ejecutan cuando finaliza el experimento.</li>
+<li><a href="#resultados-estadísticos"><strong>Resultados estadísticos</strong></a>: La media y la desviación estándar
+de los datos de simulaciones pueden guardarse en un archivo de resultados.</li>
+<li><a href="#resultados-en-lista"><strong>Resultados en lista</strong></a>: Los datos se pueden guardar en listas en un archivo,
+con un elemento de lista por celda.</li>
+<li><a href="#importar-y-exportar"><strong>Importar y exportar</strong></a>: Los experimentos ahora pueden exportarse a
+un archivo XML que puede utilizarse al ejecutar en modo sin interfaz (headlessly). También es posible importar
+experimentos en un
+modelo.</li>
+<li><a href="#experimentos-pausados"><strong>Experimentos pausados</strong></a>: Ahora es posible pausar y reanudar los experimentos.</li>
+<li><a href="#opciones-de-ejecución-actualizar-gráficos-y-monitores"><strong>Opciones de ejecución: actualizar gráficos y monitores</strong></a>:
+Mejora el rendimiento en mayor medida si no se selecciona.</li>
+</ul>
+<p>Más acerca de las modificaciones en Espacio-Conductual en NetLogo 6.4:</p>
+<ul>
+<li>Los experimentos creados en versiones anteriores a la 6.4 aún se pueden abrir, pero
+los creados con las nuevas funciones no son compatibles con versiones anteriores.</li>
+<li>Para información sobre cambios en archivos de resultados, consult
+<a href="#cambios-en-archivos-de-resultados"><strong>Cambios en Archivos de Resultados</strong></a>.</li>
+<li>El cuadro de diálogo del experimento ahora usa mensajes emergentes debajo de cada elemento de entrada, en lugar de
+texto; consulta
+<a href="#creación-de-una-configuración-de-experimentos"><strong>Creación de una configuración de experimentos</strong></a>.</li>
+<li>Experimentos que utilizan las nuevas funciones pueden encontrarse en el modelo
+Sample Models=&gt;Biology=&gt;Wolf Sheep Predation, con notas adicionales en la pestaña de información.</li>
+<li>Modificaciones menores adicionales pueden encontrarse en esta página, buscando <em>(Desde 6.4)</em>.</li>
+</ul>
+<h2><a href="#qué-es-espacio-conductual" id="qué-es-espacio-conductual" class="section-anchor">¿Qué es Espacio-Conductual?</a></h2>
+<p>Espacio-Conductual es una herramienta de software integrada con NetLogo que permite
+realizar experimentos con modelos.</p>
+<p>Espacio-Conductual ejecuta un modelo varias veces, variando sistemáticamente la configuración del modelo
+y registrando los resultados de cada ejecución. A este proceso a veces
+se le llama &ldquo;exploración de parámetros&rdquo;. Permite explorar el &ldquo;espacio&rdquo; de posibles
+comportamientos del modelo y determinar qué combinaciones de configuración provocan los comportamientos de
+interés.</p>
+<p>Si la computadora tiene múltiples núcleos de procesador, puede especificarse cuántas ejecuciones del modelo ocurrirán
+en paralelo.</p>
+<h3><a href="#por-qué-espacio-conductual" id="por-qué-espacio-conductual" class="section-anchor">¿Por qué Espacio-Conductual?</a></h3>
+<p>La necesidad de este tipo de experimento se hace evidente a través de las siguientes observaciones.
+A menudo, los modelos tienen muchas configuraciones, cada una de las cuales puede tomar un rango de valores.
+Juntas, forman lo que en matemáticas se llama un &ldquo;espacio de parámetros&rdquo; para el
+modelo, cuyas dimensiones son el número de configuraciones, y en el cual cada punto es
+una combinación particular de valores. Ejecutar un modelo con diferentes configuraciones (y
+a veces incluso las mismas) puede llevar a un comportamiento drásticamente diferente en el
+sistema que se está modelizando. De modo que, ¿cómo saber qué configuración particular de
+valores, o qué tipos de configuraciones, producirán el tipo de comportamiento que nos interesa?
+Esto equivale a la pregunta: ¿dónde - en su enorme
+espacio de parámetros multidimensional- funciona mejor nuestro modelo?</p>
+<p>Por ejemplo, supongamos que desea lograrse una sincronización rápida entre los agentes en el modelo
+Fireflies. El modelo tiene cuatro deslizadores: number, cycle-length,
+flash-length and flashes-to-reset, con aproximadamente 2000, 100, 10 y 3 valores posibles,
+respectivamente. Esto significa que, ¡hay 2000 _ 100 _ 10 * 3 =
+6,000,000 posibles combinaciones de valores de los deslizadores! Probar combinaciones una por una,
+no es una forma remotamente eficiente de descubrir cuál provocará la sincronización
+más rápida.</p>
+<p>Espacio-Conductual ofrece una forma mucho mejor de resolver este problema al muestrear el espacio de
+parámetros del modelo, no de manera exhaustiva, pero lo suficiente como para
+observar la formación de relaciones entre los diferentes valores de los deslizadores y el comportamiento del
+sistema. Una forma de hacerlo es especificar un subconjunto de valores dentro de los rangos de cada
+deslizador. Consulta <a href="#sintaxis-combinatoria"><strong>Sintaxis combinatoria</strong></a>. Espacio-Conductual
+ejecutará el modelo con cada posible combinación de esos valores y registrará los resultados
+durante cada ejecución. Desde NetLogo 6.4, es posible especificar conjuntos
+no combinatorios de valores de los deslizadores. Consulta
+<a href="#sintaxis-de-subexperimento"><strong>Sintaxis de subexperimento</strong></a>. Después de que todas las ejecuciones
+finalizan, se genera un conjunto de datos que se puede abrir en una herramienta diferente,
+como una hoja de cálculo, una base de datos o una aplicación de visualización científica, y explorarlos.</p>
+<p>Al permitir explorar todo el &ldquo;espacio&rdquo; de comportamientos que un modelo puede exhibir,
+Espacio-Conductual puede ser un poderoso asistente para el modelador.</p>
+<h2><a href="#cómo-funciona" id="cómo-funciona" class="section-anchor">Cómo funciona</a></h2>
+<p>Para comenzar a usar Espacio-Conductual, abre el modelo y luego selecciona la opción &ldquo;Espacio-Conductual&rdquo;
+en el menú &ldquo;Herramientas&rdquo; de NetLogo.</p>
+<h3><a href="#gestión-de-configuración-de-experimentos" id="gestión-de-configuración-de-experimentos" class="section-anchor">Gestión de configuración de experimentos</a></h3>
+<p>El cuadro de diálogo que se abre permite crear, editar, duplicar, eliminar, importar, exportar
+y ejecutar configuraciones de experimentos. Los experimentos se enumeran por nombre y el número total
+de ejecuciones del modelo.</p>
+<p>Las configuraciones de experimentos se consideran parte de un modelo de NetLogo y se guardan como
+componentes del modelo, pero también pueden exportarse como archivos individuales. Consulta
+<a href="#importar-y-exportar"><strong>Importar y exportar</strong></a> (<em>Desde 6.4</em>).</p>
+<p>Para crear una nueva configuración de experimento, presiona el botón &ldquo;Nuevo&rdquo;. Para editar
+una configuración de experimento existente, presiona el botón &ldquo;Editar&rdquo;. El mismo cuadro de diálogo
+se utiliza en ambos casos, lo que difiere es la información que ya está incluida.
+El cuadro de diálogo no bloquea, lo que resulta útil si se desea copiar algo de la pestaña de &ldquo;Código&rdquo;
+o ver los deslizadores en la pestaña de &ldquo;Ejecutar&rdquo; (<em>Desde 6.4</em>).</p>
+<h3><a href="#creación-de-una-configuración-de-experimentos" id="creación-de-una-configuración-de-experimentos" class="section-anchor">Creación de una configuración de experimentos</a></h3>
+<p>A continuación se detalla la información que se puede incluir en el cuadro de diálogo
+del experimento. Ten en cuenta que no es necesario especificar todo; algunas partes pueden
+dejarse en blanco o con sus valores predeterminados. Si el nombre de una propiedad está
+subrayado, puedes desplazar el cursor sobre él para obtener más información sobre la propiedad
+y sobre cómo se utiliza, de modo que no tengas que visitar esta página con tanta frecuencia <em>(Desde 6.4)</em>.</p>
+<p><strong>Nombre del experimento:</strong> Los experimentos de un mismo modelo deben tener nombres distintos. Si
+se abre un modelo que contiene experimentos con nombres duplicados, éstos se modificarán
+para garantizar que todos los nombres sean únicos <em>(Desde 6.4)</em>.</p>
+<p><strong>Variar variables de la siguiente manera:</strong> En este apartado, se especifican las configuraciones
+que se desean modificar y los valores que deben tomar. Las variables pueden incluir deslizadores,
+interruptores, seleccionadores y cualquier variable global en el modelo. Es posible que la vista y
+los gráficos no coincidan con los valores en los elementos visuales una vez que finaliza el experimento.
+Esto se debe a que las variables globales controladas por los elementos visuales vuelven a su estado
+inicial al final del experimento. Para sincronizar la vista y los gráficos con los elementos visuales,
+se debe ejecutar el procedimiento que inicializa la vista.</p>
+<p>También se pueden incluir en las variables <a href="dictionary.html#max-pcor"><code>max-pxcor</code></a>, <a href="dictionary.html#min-pcor"><code>min-pxcor</code></a>,
+<a href="dictionary.html#max-pcor"><code>max-pycor</code></a> y <a href="dictionary.html#min-pcor"><code>min-pycor</code></a>, <a href="dictionary.html#world-dim"><code>world-width</code></a>,
+<a href="dictionary.html#world-dim"><code>world-height</code></a> y <a href="dictionary.html#random-seed"><code>random-seed</code></a>. Estas no son variables, estrictamente
+hablando, pero Espacio-Conductual permite variarlas como si así lo fueran.
+Variar las dimensiones del mundo, permite explorar el efecto de su tamaño sobre
+el modelo. Establecer <a href="dictionary.html#world-dim"><code>world-width</code></a> y <a href="dictionary.html#world-dim"><code>world-height</code></a> es
+válido bajo dos circunstancias: 1) Si el origen está centrado en anchura o altura,
+Espacio-Conductual lo mantendrá centrado en esa dimensión. Esto requiere que el/los
+valor(es) correspondiente(s) de <a href="dictionary.html#world-dim"><code>world-width</code></a> y/o <a href="dictionary.html#world-dim"><code>world-height</code></a>
+sea(n) impar(es). 2) Si uno de los límites es cero, se mantendrá en cero y el otro
+límite se moverá. Por ejemplo, si se comienza con un mundo donde <code>min-pxcor = 0</code>
+y <code>max-pxcor = 10</code>, y se varía <a href="dictionary.html#world-dim"><code>world-width</code></a>
+de esta manera:</p>
+<blockquote>
+<p><code>[&quot;world-width&quot; [11 1 14]]</code></p>
+</blockquote>
+<p><a href="dictionary.html#min-pcor"><code>min-pxcor</code></a> se mantendrá en cero y <a href="dictionary.html#max-pcor"><code>max-pxcor</code></a> se
+ajustará a 11, 12 y 13 en ejecuciones sucesivas. Si ninguna de estas
+condiciones es cierta, no se podrá variar <a href="dictionary.html#world-dim"><code>world-height</code></a> o
+<a href="dictionary.html#world-dim"><code>world-width</code></a> directamente, sino que se deberá variar <a href="dictionary.html#max-pcor"><code>max-pxcor</code></a>,
+<a href="dictionary.html#max-pcor"><code>max-pycor</code></a>, <a href="dictionary.html#min-pcor"><code>min-pxcor</code></a> y <a href="dictionary.html#min-pcor"><code>min-pycor</code></a>
+en su lugar.</p>
+<p>Variar <a href="dictionary.html#random-seed"><code>random-seed</code></a> permite repetir ejecuciones al usar una semilla conocida para el
+generador de números aleatorios de NetLogo. Considera que también se permite usar el comando
+<a href="dictionary.html#random-seed"><code>random-seed</code></a> en la configuración de los comandos del experimento. Para más
+información sobre semillas aleatorias, consulta la sección
+<a href="programming.html#random-numbers">Random Numbers</a> de la Guía de
+Programación.</p>
+<h4><a href="#sintaxis-combinatoria" id="sintaxis-combinatoria" class="section-anchor">Sintaxis combinatoria</a></h4>
+<p>Los valores pueden especificarse ya sea enumerando los que se desean utilizar, o
+indicando que se desea probar cada valor dentro de un rango específico. Por ejemplo,
+para asignar a un deslizador llamado <code>number</code> cada valor de 100 a 1000, en incrementos de
+50, se ingresaría:</p>
+<blockquote>
+<p><code>[&quot;number&quot; [100 50 1000]]</code></p>
+</blockquote>
+<p>O, para asignar únicamente los valores 100, 200, 400, and 800, se ingresaría:</p>
+<blockquote>
+<p><code>[&quot;number&quot; 100 200 400 800]</code></p>
+</blockquote>
+<p>Atención con los corchetes. Observa que hay menos corchetes en el segundo
+ejemplo. La inclusión o no de este conjunto adicional de corchetes,
+es la forma en que se indica a Espacio-Conductual si se están enumerando valores
+individuales o se está especificando un rango.</p>
+<p>También considera que las comillas en los nombres de las variables son requeridas.</p>
+<p>Todas las combinaciones de los valores especificados se ejecutarán. Por ejemplo, si se tienen dos
+valores para la variable <code>a</code> y tres valores para la variable <code>b</code>, se obtendrán seis ejecuciones.</p>
+<blockquote>
+<p><code>[[&quot;a&quot; 1 2]</code></p>
+<p><code>[&quot;b&quot; [2 6 10]]</code></p>
+</blockquote>
+<p>Las seis ejecuciones creadas se organizarán de la siguiente manera:</p>
+<table>
+<thead>
+<tr><th align="right">a</th><th align="right">b</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1</td><td align="right">2</td></tr>
+<tr><td align="right">1</td><td align="right">6</td></tr>
+<tr><td align="right">1</td><td align="right">10</td></tr>
+<tr><td align="right">2</td><td align="right">2</td></tr>
+<tr><td align="right">2</td><td align="right">6</td></tr>
+<tr><td align="right">2</td><td align="right">10</td></tr>
+</tbody>
+</table>
+<p><strong>Casilla de verificación para ejecutar combinaciones en orden secuencial</strong> Esta casilla está marcada
+de forma predeterminada y provoca que las variables especificadas posteriormente varíen más rápido
+que las especificadas anteriormente. Cuando la casilla está en blanco, se obtiene un orden no secuencial,
+con las variables especificadas anteriormente variando más rápido que las especificadas posteriormente.
+El orden no-secuencial para la especificación de variables anterior es:</p>
+<table>
+<thead>
+<tr><th align="right">a</th><th align="right">b</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1</td><td align="right">2</td></tr>
+<tr><td align="right">2</td><td align="right">2</td></tr>
+<tr><td align="right">1</td><td align="right">6</td></tr>
+<tr><td align="right">2</td><td align="right">6</td></tr>
+<tr><td align="right">1</td><td align="right">10</td></tr>
+<tr><td align="right">2</td><td align="right">10</td></tr>
+</tbody>
+</table>
+<h4><a href="#sintaxis-de-subexperimento" id="sintaxis-de-subexperimento" class="section-anchor">Sintaxis de subexperimento</a></h4>
+<p><em>(Desde 6.4)</em></p>
+<p>Para usuarios más avanzados, existe una tercera sintaxis disponible
+para variar parámetros: la sintaxis de subexperimento. Por ejemplo, si se desea probar dos valores para una variable <code>a</code>
+con un valor de una variable <code>b</code>, pero otros dos valores de <code>a</code> para un segundo valor de <code>b</code>,
+se puede escribir de la siguiente manera:</p>
+<blockquote>
+<p><code>[[&quot;a&quot; 1 2][&quot;b&quot; 1]]</code></p>
+<p><code>[[&quot;a&quot; 3 4][&quot;b&quot; 2]]</code></p>
+</blockquote>
+<p>Atención al uso de dobles corchetes anidados para separar cada variable dentro del subexperimento.
+Esto generará cuatro ejecuciones, organizadas de la siguiente manera:</p>
+<table>
+<thead>
+<tr><th align="right">a</th><th align="right">b</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1</td><td align="right">1</td></tr>
+<tr><td align="right">2</td><td align="right">1</td></tr>
+<tr><td align="right">3</td><td align="right">2</td></tr>
+<tr><td align="right">4</td><td align="right">2</td></tr>
+</tbody>
+</table>
+<p>La sintaxis de subexperimento también permite definir constantes utilizando la sintaxis
+estándar. Estas constantes se aplicarán a cada subexperimento, a menos que se sobrescriban.
+Siguiendo el ejemplo anterior, si se desea probar esas combinaciones de <code>a</code> y <code>b</code>
+con un valor específico para una tercera variable <code>c</code>, se puede escribir de la siguiente manera:</p>
+<blockquote>
+<p><code>[&quot;c&quot; 5]</code></p>
+<p><code>[[&quot;a&quot; 1 2][&quot;b&quot; 1]]</code></p>
+<p><code>[[&quot;a&quot; 3 4][&quot;b&quot; 2]]</code></p>
+</blockquote>
+<p>Esto fijaría el valor de <code>c</code> en 5 para los 4 subexperimentos, lo que resultaría en las siguientes ejecuciones:</p>
+<table>
+<thead>
+<tr><th align="right">a</th><th align="right">b</th><th align="right">c</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1</td><td align="right">1</td><td align="right">5</td></tr>
+<tr><td align="right">2</td><td align="right">1</td><td align="right">5</td></tr>
+<tr><td align="right">3</td><td align="right">2</td><td align="right">5</td></tr>
+<tr><td align="right">4</td><td align="right">2</td><td align="right">5</td></tr>
+</tbody>
+</table>
+<p>También se puede sobreescribir una constante en un subexperimento, como se muestra en el siguiente ejemplo:</p>
+<blockquote>
+<p><code>[&quot;a&quot; 1]</code></p>
+<p><code>[&quot;b&quot; 2]</code></p>
+<p><code>[[&quot;a&quot; 2]]</code></p>
+</blockquote>
+<p>Esto generaría una ejecución con la siguiente combinación:</p>
+<table>
+<thead>
+<tr><th align="right">a</th><th align="right">b</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">2</td><td align="right">2</td></tr>
+</tbody>
+</table>
+<p>Ten en cuenta que todos los valores constantes deben definirse antes de cualquier subexperimento.</p>
+<p>Se pueden variar tantas configuraciones como se desee, incluyendo solo una o ninguna.
+Cualquier configuración que no varíe mantendrá su valor actual. No variar ninguna
+configuración es útil si simplemente desea ejecutarse el modelo con las configuraciones
+actuales.</p>
+<p>El orden en que se enumeran las variables determina el orden de las ejecuciones.
+Se probarán todos los valores de una variable posterior antes de pasar al siguiente valor
+de una variable anterior. Por ejemplo, si se varía tanto <code>x</code> como <code>y</code> de 1 a 3, y <code>x</code>
+se enumera primero, entonces el orden de las ejecuciones del modelo será: x=1 y=1, x=1 y=2,
+x=1 y=3, x=2 y=1, y así sucesivamente.</p>
+<p><strong>Repeticiones:</strong> A veces, el comportamiento de un modelo puede variar mucho de una
+ejecución a otra - incluso si las configuraciones no cambian-, si el modelo utiliza
+números aleatorios. Si deseas ejecutar el modelo más de una vez en cada combinación
+de configuraciones, ingresa un número mayor.
+Con repeticiones en un orden secuencial, las repeticiones ocurren en ejecuciones secuenciales:</p>
+<table>
+<thead>
+<tr><th align="right">a</th><th align="right">b</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1</td><td align="right">2</td></tr>
+<tr><td align="right">1</td><td align="right">2</td></tr>
+<tr><td align="right">2</td><td align="right">2</td></tr>
+<tr><td align="right">2</td><td align="right">2</td></tr>
+<tr><td align="right">1</td><td align="right">6</td></tr>
+<tr><td align="right">1</td><td align="right">6</td></tr>
+<tr><td align="right">2</td><td align="right">6</td></tr>
+<tr><td align="right">2</td><td align="right">6</td></tr>
+<tr><td align="right">1</td><td align="right">10</td></tr>
+<tr><td align="right">1</td><td align="right">10</td></tr>
+<tr><td align="right">2</td><td align="right">10</td></tr>
+<tr><td align="right">2</td><td align="right">10</td></tr>
+</tbody>
+</table>
+<p>Con repeticiones en un orden no-secuencial, las repeticiones se realizan como un segundo grupo de ejecuciones:</p>
+<table>
+<thead>
+<tr><th align="right">a</th><th align="right">b</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1</td><td align="right">2</td></tr>
+<tr><td align="right">2</td><td align="right">2</td></tr>
+<tr><td align="right">1</td><td align="right">6</td></tr>
+<tr><td align="right">2</td><td align="right">6</td></tr>
+<tr><td align="right">1</td><td align="right">10</td></tr>
+<tr><td align="right">2</td><td align="right">10</td></tr>
+<tr><td align="right">1</td><td align="right">2</td></tr>
+<tr><td align="right">2</td><td align="right">2</td></tr>
+<tr><td align="right">1</td><td align="right">6</td></tr>
+<tr><td align="right">2</td><td align="right">6</td></tr>
+<tr><td align="right">1</td><td align="right">10</td></tr>
+<tr><td align="right">2</td><td align="right">10</td></tr>
+</tbody>
+</table>
+<p><strong>Evaluar las ejecuciones utilizando estos reporteros:</strong> Aquí se especifica qué datos
+recopilar de cada ejecución. Por ejemplo, para registrar cómo la población de las
+tortugas aumentó y disminuyó durante cada ejecución, se incluiría:</p>
+<blockquote>
+<p><code>count turtles</code></p>
+</blockquote>
+<p>Se puede ingresar un reportero, varios o ninguno. Si se ingresan varios,
+cada reportero debe estar en una línea diferente, por ejemplo:</p>
+<blockquote>
+<p><code>count frogs</code> &gt; <code>count mice</code> &gt; <code>count birds</code></p>
+</blockquote>
+<p>Si no se ingresan reporteros, las ejecuciones aún se llevarán a cabo. Esto es útil
+si deseas registrar los resultados a tu propia manera, como con el comando
+<a href="dictionary.html#export-cmds"><code>export-world</code></a>. Se pueden usar los reporteros que hayan sido definidos
+en la pestaña &ldquo;Código&rdquo;. Los reporteros aparecerán como encabezados de columna.
+Si se prefieren encabezados más compactos, se puede reemplazar <code>count patches with [ pcolor = red ]</code>
+con un reportero <code>red-patches</code> definido en la pestaña &ldquo;Código&rdquo;</p>
+<p><strong>Ejecutar indicadores a cada paso:</strong> Normalmente, NetLogo evaluará las ejecuciones del modelo
+a cada paso, utilizando los reporteros ingresados en el cuadro previo. Si se está realizando
+una ejecución de modelo muy larga, es posible que no se deseen todos los datos.
+Si se desea evaluar el modelo solo al final de la ejecución, o si se desea especificar ciertas
+condiciones que indiquen cuándo evaluar el modelo, se debe dejar la casilla en blanco.</p>
+<h4><a href="#ejecutar-indicadores-cuando" id="ejecutar-indicadores-cuando" class="section-anchor">Ejecutar indicadores cuando</a></h4>
+<p><em>(Desde 6.4)</em></p>
+<p>Este reportero se utilizará para determinar cuándo se deben registrar datos,
+si no se está evaluando a cada paso. Los datos siempre se obtendrán al final de cada
+ejecución del modelo, aún si este cuadro de texto está vacío,
+como sucedía cuando <em>Evaluar ejecuciones a cada paso</em> (ahora <em>Ejecutar indicadores a cada paso</em>)
+se dejaba en blanco. Por ejemplo <em>ticks mod 10 = 0</em>
+registrará datos tanto en cada décimo tick, como en el último tick. Se pueden combinar múltiples
+reporteros usando <em>and</em> y <em>or</em>.</p>
+<h5><a href="#comandos-pre-experimento" id="comandos-pre-experimento" class="section-anchor">Comandos pre-experimento</a></h5>
+<p>Estos comandos se ejecutarán una vez, antes de que inicie el experimento.</p>
+<p><strong>Instrucciones de configuración inicial:</strong> Estos comandos se utilizarán para
+iniciar cada ejecución del modelo. Por lo general, se ingresa el nombre de un
+procedimiento que configure el modelo, como <code>setup</code>. Sin embargo, también es
+posible incluir otros comandos. Si se desea obtener los mismos resultados cada
+vez que se ejecuta un experimento, se puede utilizar algo como <code>random-seed 473 setup</code>.
+Para obtener resultados diferentes en repeticiones, se puedes usar
+<code>random-seed (474 + behaviorspace-run-number) setup</code></p>
+<p><strong>Comandos <code>go</code>:</strong> Estos comandos se ejecutarán una y otra vez para avanzar el modelo
+al siguiente &lsquo;paso&rsquo;. Por lo general, esto será el nombre de un procedimiento, como <code>go</code>,
+pero se pueden incluir los comandos que se deseen.</p>
+<p><strong>Condición de finalización:</strong> Esto permite realizar ejecuciones del modelo de diferentes
+duraciones, finalizando cada una cuando se cumple una cierta condición. Por ejemplo, supongamos
+que se desea que cada ejecución dure hasta que ya no queden tortugas. En ese caso, se ingresaría:</p>
+<blockquote>
+<p><code>not any? turtles</code></p>
+</blockquote>
+<p>Si se desea que todas las ejecuciones tengan una duración fija, simplemente
+se deja en blanco.</p>
+<p>La ejecución también puede detenerse debido a que los comandos <code>go</code> utilizan el comando <a href="dictionary.html#stop"><code>stop</code></a>
+de la misma manera que <a href="dictionary.html#stop"><code>stop</code></a> se usa para detener un botón &ldquo;Continuo&rdquo;. El comando <a href="dictionary.html#stop"><code>stop</code></a>
+puede usarse directamente en los comandos <code>go</code> o en un procedimiento llamado directamente por los
+comandos <code>go</code>. (La intención es que el mismo procedimiento <code>go</code> funcione tanto en un botón como
+en un experimento de Espacio-Conductual). Ten en cuenta que el paso en el que se utiliza <a href="dictionary.html#stop"><code>stop</code></a>
+se considera como si hubiera sido interrumpido, por lo que no se registrarán resultados para ese paso.
+Por lo tanto, la prueba de detención debería estar al principio de los comandos <code>go</code>,
+o del procedimiento, no al final.</p>
+<p><strong>Comandos post-ejecución:</strong> Estos son cualquier comando adicional que se quiera ejecutar
+cuando finaliza la ejecución. Generalmente se deja en blanco, pero pudiera usarse para llamar
+al comando <a href="dictionary.html#export-cmds"><code>export-world</code></a> o para registrar los resultados de la ejecución de
+alguna otra manera.</p>
+<h5><a href="#comandos-post-experimento" id="comandos-post-experimento" class="section-anchor">Comandos post-experimento</a></h5>
+<p>Estos son cualquier comando adicional que se quiera ejecutar
+cuando finaliza el experimento, una vez que todas las ejecuciones han finalizado.</p>
+<p><strong>Límite de tiempo:</strong> Esto permite establecer una longitud fija máxima para cada
+ejecución. Cuando no se desea establecer un máximo, sino que se prefiere que la
+longitud de las ejecuciones esté controlada por la condición de detención, se ingresa 0.</p>
+<p><strong>Nota sobre comandos pre y post-experimento:</strong> Estos comandos se ejecutan fuera de
+las ejecuciones reales, por lo que no pueden afectar a las variables globales o a los
+agentes en el modelo (para eso se utilizan los comandos de configuración inicial y los
+comandos post-ejecución). Si se utilizan primitivas como file-open o la extensión CSV
+en los comandos previos o posteriores al experimento, su estado interno no se transferirá
+a las ejecuciones y es probable que ocurran errores si se utilizan ahí.</p>
+<h3><a href="#importar-y-exportar" id="importar-y-exportar" class="section-anchor">Importar y exportar</a></h3>
+<p><em>(Desde 6.4)</em></p>
+<p>Aunque los experimentos están vinculados a un modelo y generalmente se guardan junto con el
+modelo, también se pueden importar y exportar de forma individual a archivos XML. Esto
+permite transferir fácilmente experimentos entre modelos y prepararlos para ejecuciones en modo
+sin interfaz. Después de exportar un experimento a un archivo XML, es posible editarlo
+manualmente o mediante otro script, no solo dentro de NetLogo.</p>
+<p>El botón <strong>Importar</strong> permite importar experimentos desde un archivo XML. Los
+archivos seleccionados pueden contener múltiples experimentos, pero aquellos que
+no cumplan con el formato correcto no se cargarán. Si se importa un experimento
+que comparta el nombre con otro experimento existente, el nombre del experimento importado
+será ligeramente modificado para garantizar que los nombres sean únicos.</p>
+<p>El botón <strong>Exportar</strong> permite exportar experimentos a un archivo XML. Se pueden seleccionar
+múltiples experimentos para ser exportados en una sola instancia, pero serán combinados
+en un único archivo de resultados.</p>
+<h3><a href="#primitivas-especiales-para-experimentos-en-espacio-conductual" id="primitivas-especiales-para-experimentos-en-espacio-conductual" class="section-anchor">Primitivas especiales para experimentos en Espacio-Conductual</a></h3>
+<p>Actualmente, sólo existen dos variables, <a href="dictionary.html#behaviorspace-run-number"><code>behaviorspace-run-number</code></a> y
+<a href="dictionary.html#behaviorspace-experiment-name"><code>behaviorspace-experiment-name</code></a>. El número de ejecución reportado por la primera
+primitiva coincide con el número de ejecución usado en los archivos de resultados
+generados por Espacio-Conductual. El nombre del experimento reportado por la segunda
+primitiva coincide con el nombre con el que se configuró el experimento.</p>
+<h3><a href="#ejecutar-un-experimento" id="ejecutar-un-experimento" class="section-anchor">Ejecutar un experimento</a></h3>
+<p>Cuando se completa la configuración de un experimento, se presiona el botón &ldquo;OK&rdquo;, y enseguida
+el botón &ldquo;Ejecutar&rdquo;. Aparecerá un cuadro de diálogo llamado &ldquo;Opciones de ejecución&rdquo;.</p>
+<h4><a href="#opciones-de-ejecución-formatos" id="opciones-de-ejecución-formatos" class="section-anchor">Opciones de ejecución: formatos</a></h4>
+<p>El cuadro de diálogo &ldquo;Opciones de ejecución&rdquo; permite la elección de archivos de resultados en dos formatos
+principales: <strong>Resultados tabulados</strong> y <strong>Resultados en hoja de cálculo</strong>. Si se elige uno o ambos formatos,
+también se pueden seleccionar los formatos adicionales <strong>Resultados en lista</strong> y <strong>Resultados estadísticos</strong>.
+Cada ruta de archivo puede ingresarse en su cuadro de texto correspondiente, o con el botón <strong>Examinar&hellip;</strong>
+a través del cuadro de diálogo del sistema de archivos. Si no se desea utilizar un formato en particular, se
+puede dejar en blanco el cuadro de texto del archivo, o hacer clic en el botón <strong>Desactivar</strong> y se limpiará
+automáticamente. La frecuencia de recopilación de datos se determina mediante la configuración de las opciones
+de <strong>Ejecutar indicadores a cada paso</strong> y <strong>Ejecutar indicadores cuando</strong>. Para los formatos de <strong>Resultados tabulados</strong>
+y <strong>Resultados en hoja de cálculo</strong>, se registra el estado inicial del sistema después de ejecutar el comando
+<strong>setup</strong> (o <strong>configuración inicial</strong>) pero antes de ejecutar el comando <strong>go</strong> por primera vez.</p>
+<p>Después de seleccionar los formatos de resultados, Espacio-Conductual solicitará el nombre del
+archivo en el que se desea guardar los resultados. El nombre predeterminado termina en &ldquo;.csv&rdquo;.
+Se puede cambiar por el nombre que se prefiera, pero hay qué asegurarse de no omitir la parte
+&ldquo;.csv&rdquo;, ya que indica que el archivo es un archivo de valores separados por comas (CSV). Este es
+un formato de datos en texto plano que puede leerse con cualquier editor de texto, así como con
+la mayoría de los programas populares de hojas de cálculo y bases de datos.</p>
+<p>Los cuatro formatos de resultados incluirán una sección de encabezado que contendrá filas
+para: 1) la versión de NetLogo utilizada, 2) el nombre del archivo del modelo de
+NetLogo utilizado, 3) el nombre del experimento de Espacio-Conductual utilizado, 4) la fecha y hora
+de inicio, y 5) las dimensiones iniciales del mundo.</p>
+<h4><a href="#resultados-tabulados" id="resultados-tabulados" class="section-anchor">Resultados tabulados</a></h4>
+<p>Este formato lista cada paso de medición de cada ejecución en su propia fila, con cada indicador en una
+columna separada. Las filas de medición aparecerán en el orden en que ocurren en el tiempo real. Con la
+opción de <strong>ejecuciones en paralelo</strong> las mediciones pueden aparecer en un orden mixto, ya que varias ejecuciones
+pueden ocurrir simultáneamente. Para ayudar a identificar a qué ejecución pertenece una fila, hay una columna
+titulada <code>[run number]</code> junto con una columna titulada <code>[step]</code> que indica el número de medición de esa ejecución.
+Cada fila también incluye los valores utilizados para las variables durante la configuración inicial de la
+ejecución; estos valores son los mismos para cada una de las filas de medición de esa ejecución. Los datos de
+<strong>Resultados tabulados</strong> se escriben en el archivo a medida que cada ejecución se completa.</p>
+<p>El formato de <strong>Resultados tabulados</strong> es útil si se desea procesar los datos con otra herramienta,
+como importarlos a una base de datos, un paquete estadístico o una aplicación de hoja de
+cálculo para su análisis.</p>
+<p>En la siguiente imagen de muestra de <strong>Resultados tabulados</strong>, la sección de encabezado (header) está resaltada en rojo, las
+columnas de número de ejecución (<code>[run number]</code>]) y paso (<code>[step]</code>) se resaltan en azul, los valores iniciales de las
+variables para la ejecución se muestran en verde y los datos de indicadores de medición se muestran en morado.</p>
+<p><img src="images/behaviorspace/bs-table.png" alt="Screenshot" class="screenshot" /></p>
+<h4><a href="#resultados-en-hoja-de-cálculo" id="resultados-en-hoja-de-cálculo" class="section-anchor">Resultados en hoja de cálculo</a></h4>
+<p>Este formato lista los números de paso, así como cada indicador de cada ejecución en una columna separada,
+con cada fila correspondiente a un paso de medición, aplicable a todas las ejecuciones. Si una ejecución
+termina antes que otra debido a una <strong>condición de finalización</strong>, entonces sus números de paso después de
+ese punto estarán en blanco. En la parte superior del archivo hay una fila <code>[run number]</code> que tendrá el
+número de ejecución, repetido para cada indicador. Enseguida, se incluyen filas para los valores
+iniciales dados a cada variable para la ejecución. Los resultados en hoja de cálculo también calculan los valores
+mínimo, promedio, máximo y final para los números de paso y para cada indicador, y los lista después de los valores
+iniciales, y antes de las mediciones individuales de cada ejecución. Luego, se indica el número real de
+pasos completados durante la ejecución, en la fila <code>[total steps]</code>.</p>
+<p>Los datos de <strong>Resultados en hoja de cálculo</strong> simplifican la comparación entre las ejecuciones,
+ya que se alinean verticalmente al importarlos a una aplicación de hoja de cálculo. Además, esta
+alineación facilita la creación de gráficos comparativos de los resultados, con cambios en las
+variables iniciales en diferentes ejecuciones.</p>
+<p>Es importante destacar que los datos no se escriben en los <strong>Resultados en hoja de cálculo</strong> hasta que
+finaliza el experimento. Dado que estos datos se almacenan en la memoria hasta que se completa el experimento,
+es posible que experimentos muy extensos agoten la memoria disponible. Se recomienda desactivar <strong>Resultados en hoja de
+cálculo</strong>
+a menos que sea absolutamente necesario. Además, si el experimento se interrumpe por cualquier motivo, no se
+registrará ningún resultado. Las posibles fuentes de interrupciones pueden incluir: errores en tiempo de ejecución en
+el modelo, agotamiento de recursos de memoria, fallos del sistema o cortes de energía. Para experimentos prolongados,
+se recomienda habilitar el formato <strong>Resultados tabulados</strong> como medida de precaución, en caso de que ocurra un problema
+y no se obtengan <strong>Resultados en hoja de cálculo</strong>; así al menos se conservarán los datos parciales.</p>
+<p>En la siguiente imagen de muestra de <strong>Resultados en hoja de cálculo</strong>, la sección de encabezado está resaltada en rojo,
+las columnas de número de ejecución (<code>[run number]</code>) se resaltan en azul, los valores iniciales de las variables se
+muestran en verde,
+los indicadores adicionales calculados se muestran en anaranjado, y los datos de medición de indicadores se encuentran
+en morado.</p>
+<p><img src="images/behaviorspace/bs-spreadsheet.png" alt="Screenshot" class="screenshot" /></p>
+<h4><a href="#resultados-estadísticos" id="resultados-estadísticos" class="section-anchor">Resultados estadísticos</a></h4>
+<p><em>(Desde 6.4)</em></p>
+<p>Si se habilita la opción de <strong>Resultados estadísticos</strong>, los datos obtenidos, ya sea en <strong>Resultados tabulados</strong>,
+o bien en <strong>Resultados en hoja de cálculo</strong>, se utilizan para calcular la media y la desviación estándar de cada
+indicador numérico a lo largo de las repeticiones de cada paso. Estos cálculos se realizan al final del experimento
+y los resultados estadísticos se guardan en el archivo especificado. Es importante destacar que los indicadores que
+pueden generar mediciones no numéricas, como cadenas de texto, no se incluyen en las estadísticas. Si los indicadores
+generan listas, los cálculos estadísticos se realizan para los elementos con el mismo índice en cada lista. Las
+estadísticas no se calculan para indicadores que generan listas que contienen elementos no numéricos. Además, el tipo
+de medición debe mantenerse constante. Por ejemplo, no se calcularán estadísticas si un indicador genera mediciones
+que pueden ser tanto listas como números. Es importante tener en cuenta que la desviación estándar puede ser &ldquo;N/A&rdquo;,
+lo que significa que se recopilaron dos o menos mediciones para esa combinación de paso y parámetro, lo que produce
+un resultado no bien definido. El experimento debe utilizar una configuración de repeticiones de 3 o más para obtener
+valores de desviación estándar.</p>
+<p>En la siguiente imagen de muestra de <strong>Resultados estadísticos</strong>, la sección de encabezado está resaltada en rojo,
+las combinaciones de parámetros en verde, las columnas de número de paso (<code>[step]</code>) en azul, y los datos estadísticos
+morado.</p>
+<p><img src="images/behaviorspace/bs-stats.png" alt="Screenshot" class="screenshot" /></p>
+<h4><a href="#resultados-en-lista" id="resultados-en-lista" class="section-anchor">Resultados en lista</a></h4>
+<p><em>(Desde 6.4)</em></p>
+<p>Este formato es un complemento de los otros dos formatos principales, en lugar de ser un formato completo de
+recopilación
+de datos. Si existen reporteros que retornan una lista, el formato <strong>Resultados en lista</strong> puede ser empleado para
+obtener
+resultados con formato adecuado para esos reporteros. Tanto en los formatos <strong>Resultados en hoja de cálculo</strong> como en
+<strong>Resultados tabulados</strong>, las listas generadas por los reporteros serán comprimidas en una sola celda, en lugar de
+desplegar
+sus elementos en celdas separadas con un valor por celda. Si los valores de la lista se requieren en celdas
+ndividuales,
+se selecciona el formato <strong>Resultados en lista</strong> junto con uno o ambos de los otros formatos.</p>
+<p>Es importante destacar que el formato <strong>Resultados en lista</strong>, al igual que el formato <strong>Resultados en hoja de
+cálculo</strong>, no contendrá datos hasta que el experimento esté completo. También es importante tener en cuenta que el
+formato
+<strong>Resultados en lista</strong> debe utilizarse en conjunto con otro formato, no puede usarse de manera independiente.</p>
+<p>En la siguiente imagen de muestra de <strong>Resultados en lista</strong>, la sección de encabezado está resaltada en rojo,
+el nombre del reportero en anaranjado, las columnas de número de ejecución (<code>[run number]</code>) y de número de paso
+(<code>[step]</code>)
+en azul, los valores iniciales de las variables en verde, y la lista expandida de datos en morado.</p>
+<p><img src="images/behaviorspace/bs-lists.png" alt="Screenshot" class="screenshot" /></p>
+<h4><a href="#cambios-en-archivos-de-resultados" id="cambios-en-archivos-de-resultados" class="section-anchor">Cambios en archivos de resultados</a></h4>
+<p><em>(Desde 6.4)</em></p>
+<ul>
+<li>Los archivos de resultados tienen números de versión.</li>
+<li>Los resultados en hoja de cálculo siempre incluyen información sobre los pasos.</li>
+<li>El encabezado de columna <code>[initial &amp; final values]</code> en los resultados en hoja de cálculo se cambió por el más preciso
+<code>[final value]</code>.</li>
+<li>Se añadió <a href="#resultados-estadísticos"><strong>Resultados estadísticos</strong></a>.</li>
+<li>Se añadió <a href="#resultados-en-lista"><strong>Resultados en lista</strong></a>.</li>
+</ul>
+<h4><a href="#opciones-de-ejecución-actualizar-gráficos-y-monitores" id="opciones-de-ejecución-actualizar-gráficos-y-monitores" class="section-anchor">Opciones de ejecución: actualizar gráficos y monitores</a></h4>
+<p>El cuadro de diálogo &ldquo;Opciones de ejecución&rdquo; ofrece la opción de actualizar o no los gráficos y monitores. El
+rendimiento mejora si se deja en blanco. Es importante destacar que <em>(Desde 6.4)</em>, si se comienza el experimento
+con la casilla en blanco, no se podrá alternar entre activar o desactivar esta casilla de verificación en el cuadro
+de diálogo &ldquo;Ejecutando experimento&rdquo;. Esto proporciona una mejora de rendimiento aún mayor que la obtenida antes
+de NetLogo 6.4, cuando dicha alternancia era posible. Selecciona la casilla si es necesario exportar datos de
+gráficos mediante primitivas como: <a href="dictionary.html#export-cmds"><code>export-interface</code></a> (guarda la interfaz completa en un archivo PNG),
+<a href="dictionary.html#export-cmds"><code>export-plot</code></a> (guarda datos de gráficos en un archivo), <a href="dictionary.html#export-cmds"><code>export-all-plots</code></a> (guarda
+todos los gráficos en un archivo), y <a href="dictionary.html#export-cmds"><code>export-world</code></a> (guarda todo el estado del modelo en un archivo).</p>
+<h4><a href="#opciones-de-ejecución-ejecuciones-en-paralelo" id="opciones-de-ejecución-ejecuciones-en-paralelo" class="section-anchor">Opciones de ejecución: ejecuciones en paralelo</a></h4>
+<p>El cuadro de diálogo &ldquo;Opciones de ejecución&rdquo; también permite seleccionar si se desean ejecuciones múltiples del
+modelo en paralelo y, en tal caso, cuántas pueden estar activas simultáneamente. Tanto el número predeterminado como
+el máximo recomendado de ejecuciones en paralelo se indican debajo del cuadro de texto <em>(Desde 6.4)</em>. La elección
+de la cantidad de ejecuciones en paralelo se mantiene de un experimento a otro <em>(Desde 6.4)</em>.</p>
+<p>Es importante considerar algunas precauciones con las ejecuciones en paralelo.</p>
+<p>Primera: si hay múltiples ejecuciones activas, solo una de ellas estará en el &ldquo;primer plano&rdquo; y generará la
+actualización de la vista y los gráficos. Las demás ejecuciones ocurrirán en segundo plano de manera invisible.</p>
+<p>Segunda: las ejecuciones en segundo plano invisibles no pueden utilizar primitivas que solo funcionan en la
+interfaz gráfica (GUI). Por ejemplo, una ejecución en segundo plano no puede crear una película.</p>
+<p>Tercera: dado que las ejecuciones en paralelo avanzan de forma independiente, el formato <code>Resultados tabulados</code> puede
+contener datos entrelazados y fuera de orden. Al analizar los datos de la tabla, se recomienda ordenarlos por número de
+ejecución. (El formato <code>Resultados en hoja de cálculo</code> no se ve afectado por esto, puesto que se escribe hasta que el
+experimento se completa o se interrumpe).</p>
+<p>Cuarta: el uso de todos los núcleos del procesador disponibles puede hacer que la computadora sea lenta para otras
+tareas mientras se ejecuta el experimento, o que las ejecuciones sean lentas ya que se produce una competencia por la
+memoria entre las propias ejecuciones. Si el modelo utiliza una gran cantidad de memoria, es posible que reducir el
+número de ejecuciones permita que estas se completen en menos tiempo, ya que el sistema puede mantener disponible la
+memoria para cada ejecución. Un buen punto de partida podría ser el valor predeterminado que se muestra en &ldquo;Opciones de
+ejecución&rdquo;, y a partir de ahí, ajustar hacia arriba o hacia abajo
+para encontrar el punto óptimo en términos de tiempo, para completar todas las ejecuciones.</p>
+<p>Quinta: realizar ejecuciones en paralelo aumentará significativamente los requerimientos de memoria del experimento. Puede ser
+necesario ajustar el límite de memoria de NetLogo (consultar <a href="faq.html#how-big-can-my-model-be-how-many-turtles-patches-procedures-buttons-and-so-on-can-my-model-contain">this FAQ
+entry</a>).
+Por defecto, NetLogo no utilizará más del 50% de la memoria del sistema.</p>
+<p>Sexta: cada ejecución en paralelo tiene su propio mundo en el que se ejecuta el modelo. Este mundo <em>no</em> se borra automáticamente
+por Espacio-Conductual si una ejecución en paralelo se reutiliza para otra repetición, lo que ocurre con bastante frecuencia. Esto
+significa, por ejemplo, que si se ejecuta <code>ask patches [ set pcolor red ]</code> en una ejecución y no se utiliza <code>clear-all</code> o <code>clear-patches</code>
+en los comandos de configuración de la siguiente ejecución, entonces las parcelas seguirán siendo rojas. En general, usar <code>clear-all</code>
+antes de cada ejecución sería una buena práctica, pero hay momentos en los que no es necesario, como cuando se cargan datos desde
+un archivo que no cambia de ejecución en ejecución. En otras palabras, es importante tener cuidado con los datos que no se borran.</p>
+<p>Séptima: hay una posibilidad extremadamente pequeña de que, al iniciar múltiples ejecuciones en paralelo al mismo tiempo,
+éstas puedan terminar con el mismo estado del generador de números aleatorios. Esto significaría que las ejecuciones producirían
+resultados idénticos en todas las operaciones aleatorias y, probablemente, resultados iguales en general. Esto podría ocurrir al
+ejecutar en procesadores muy rápidos y con muchas ejecuciones en paralelo al mismo tiempo. Si se desea garantizar que esto no afecte
+los resultados, puede agregarse el comando <code>random-seed new-seed</code> a los comandos de configuración para generar una nueva semilla
+aleatoria única en cada ejecución. De hecho, guardar <code>new-seed</code> como una variable global permitiría volver a ejecutar una ejecución
+en otro momento, utilizando ese valor para establecer <code>random-seed</code> manualmente.</p>
+<h4><a href="#observación-de-ejecuciones" id="observación-de-ejecuciones" class="section-anchor">Observación de ejecuciones</a></h4>
+<p>Después de configurar las &ldquo;Opciones de ejecución&rdquo;, aparecerá otro cuadro de diálogo llamado &ldquo;Ejecutando experimento&rdquo;.
+En este cuadro, se presenta un informe de progreso que indica cuántas ejecuciones se han completado hasta el momento
+y el tiempo transcurrido. Si se han definido reporteros para medir las ejecuciones y se ha seleccionado la casilla
+&ldquo;Ejecutar indicadores a cada paso&rdquo;, se mostrará un gráfico que representa la variación de los mismos, a lo
+largo de cada ejecución.</p>
+<p>También es posible observar las ejecuciones en la ventana principal de NetLogo. Si el cuadro de diálogo &ldquo;Ejecutando
+experimento&rdquo; obstaculiza la vista, simplemente se puede mover a otra ubicación en la pantalla. Si no es necesario
+visualizar las actualizaciones de los gráficos, puede desactivarse esta función utilizando las casillas de verificación
+en el cuadro de diálogo &ldquo;Ejecutando experimento&rdquo;. Esto acelerará el experimento. Sin embargo, si ya ha se desactivado
+la actualización de gráficos y monitores en el cuadro de diálogo &ldquo;Opciones de ejecución&rdquo;, esta casilla permanecerá
+deshabilitada <em>(Desde 6.4)</em>.</p>
+<p>Si se quiere detener un experimento antes de que haya finalizado, existen dos opciones. Para detenerlo después
+de que las ejecuciones actuales hayan concluido y guardar el progreso para más tarde, se presiona el botón &ldquo;Pausar&rdquo;
+<em>(Desde 6.4)</em>. Para detener el experimento de inmediato, sin esperar a que las ejecuciones actuales se completen,
+se presiona el botón &ldquo;Interrumpir&rdquo;. Cualquier resultado generado hasta ese momento se guardará, pero ten en cuenta que
+presionar &ldquo;Interrumpir&rdquo; puede generar datos fragmentados, por lo que los experimentos interrumpidos no pueden
+reanudarse.</p>
+<p>Cuando todas las ejecuciones se han completado, el experimento finaliza. En este punto se generarán los formatos de
+Resultados en hoja de cálculo, en lista y estadísticos.</p>
+<h4><a href="#experimentos-pausados" id="experimentos-pausados" class="section-anchor">Experimentos pausados</a></h4>
+<p><em>(Desde 6.4)</em></p>
+<p>Los experimentos pausados en la ventana de Espacio-Conductual, aparecerán con la leyenda &ldquo;En progreso&rdquo;.
+Para reanudar un experimento desde el punto donde se pausó, selecciónalo y presiona el botón &ldquo;Ejecutar&rdquo;.
+Para restablecer un experimento pausado a su estado inicial, selecciónalo y presiona el botón
+&ldquo;Interrumpir&rdquo;.</p>
+<p>Si se está utilizando la opción de &ldquo;Resultados en hoja de cálculo&rdquo;, se escribirá un archivo que contendrá
+los datos generados hasta el momento en que el experimento se pausa. Estos datos se utilizarán como parte de la
+creación de un archivo completo de hoja de cálculo. Es importante tener en cuenta que si el experimento
+está escribiendo en su propio archivo externo, es posible que se requieran algunos cambios para que la pausa
+funcione correctamente. Por ejemplo, se debe utilizar <code>file-flush</code> o <code>file-close</code> al final de cada ejecución
+para asegurarse de que todos los datos se escriban en el archivo. Además, se debe utilizar <code>file-open</code> antes
+de realizar cualquier escritura durante una ejecución. Al abrir un archivo en modo de escritura, todos los
+nuevos datos se agregarán al final del archivo original, lo cual probablemente es el comportamiento deseado.</p>
+<p>Es importante tener en cuenta que mover o eliminar archivos de resultados antes de reanudar un experimento pausado,
+provocará un error. Así también, si se generan nuevos datos en un archivo asociado con un experimento pausado, también
+podría causar un error al reanudar dicho experimento.</p>
+<h2><a href="#uso-avanzado" id="uso-avanzado" class="section-anchor">Uso avanzado</a></h2>
+<h3><a href="#ejecutar-desde-la-línea-de-comando" id="ejecutar-desde-la-línea-de-comando" class="section-anchor">Ejecutar desde la línea de comando</a></h3>
+<p>Es posible ejecutar experimentos de Espacio-Conductual desde la línea de comandos,
+sin ninguna interfaz gráfica de usuario (&ldquo;headless&rdquo;). Esto resulta útil para
+automatizar ejecuciones en una sola máquina o en un conjunto de máquinas.</p>
+<p>No se requiere programación en Java. Las configuraciones de experimentos pueden crearse en
+la GUI y luego ejecutarse posteriormente desde la línea de comandos, o, si se prefiere,
+se pueden crear o editar configuraciones de experimentos directamente utilizando XML.</p>
+<h4><a href="#cómo-se-usa" id="cómo-se-usa" class="section-anchor">Cómo se usa</a></h4>
+<p>Se ejecuta NetLogo usando la aplicación <code>NetLogo_Console</code> con el argumento de línea de comandos <code>--headless</code>
+Ésta se encuentra en el directorio principal de la instalación de NetLogo. El script <code>NetLogo_Console</code> es
+compatible con los siguientes argumentos:</p>
+<ul>
+<li><code>--headless</code>: activa el modo sin interfaz para ejecutar un experimento de Espacio-Conductual (obligatorio, de lo contrario
+se abrirá la interfaz gráfica).</li>
+<li><code>--model &lt;ruta&gt;</code>: ruta de archivo del modelo a abrir
+(obligatorio).</li>
+<li><code>--setup-file &lt;ruta&gt;</code>: lee las configuraciones de experimentos desde este archivo en lugar del archivo del
+modelo.</li>
+<li><code>--experiment &lt;nombre&gt;</code>: nombre del experimento a ejecutarse.</li>
+<li><code>--table &lt;ruta&gt;</code>: ruta para enviar resultados tabulados (o <code>-</code> para resultados
+estándar).</li>
+<li><code>--spreadsheet &lt;ruta&gt;</code>: ruta para enviar resultados en hoja de cálculo (o <code>-</code> para resultados
+estándar)</li>
+<li><code>--lists &lt;ruta&gt;</code>: ruta para enviar resultados en lista (o <code>-</code> para resultados estándar),
+no puede utilizarse sin <code>--table</code> o <code>--spreadsheet</code>.</li>
+<li><code>--stats &lt;ruta&gt;</code>: ruta para enviar resultados estadísticos (o <code>-</code> para resultados estándar),
+no puede utilizarse sin <code>--table</code> o <code>--spreadsheet</code></li>
+<li><code>--threads &lt;número&gt;</code>: utiliza esta cantidad de hilos para realizar ejecuciones de modelo en paralelo, o 1
+para desactivar ejecuciones en paralelo. El valor predeterminadao es <code>floor(0.75 * &lt;number of processors&gt;)</code>.</li>
+<li><code>--update-plots</code>: habilita las actualizaciones de gráficos. Se incluye si se desea exportar datos de gráficos o
+se excluye para mejorar el rendimiento.</li>
+<li><code>--min-pxcor &lt;número&gt;</code>: reemplaza la configuración de tamaño del mundo en el archivo del modelo.</li>
+<li><code>--max-pxcor &lt;número&gt;</code>: reemplaza la configuración de tamaño del mundo en el archivo del modelo.</li>
+<li><code>--min-pycor &lt;número&gt;</code>: reemplaza la configuración de tamaño del mundo en el archivo del modelo.</li>
+<li><code>--max-pycor &lt;número&gt;</code>: reemplaza la configuración de tamaño del mundo en el archivo del modelo.</li>
+</ul>
+<p><code>--model</code> es obligatorio. Si no se especifica <code>--experiment</code>, se debe especificar
+<code>--setup-file</code>. Por defecto, no se generan resultados, por lo que generalmente se deberá
+especificar <code>--table</code> o <code>--spreadsheet</code>, o ambos. Si se especifica alguna de las dimensiones
+del mundo, se deben proporcionar las cuatro.</p>
+<p>Es importante tener en cuenta que antes de NetLogo 6.3.0, las indicaciones recomendaban el uso de
+<code>netlogo-headless.sh</code> (o <code>netlogo-headless.bat</code> en Windows) junto con una instalación independiente de Java
+en el sistema para llevar a cabo experimentos de Espacio-Conductual. El script <code>netlogo-headless.sh</code> aún se
+incluye en NetLogo y puede seguir utilizándose como antes, lo que puede ser preferible en entornos de servidor,
+donde la versión de Java instalada está estrictamente controlada. Sin embargo, en una computadora personal, el
+método recomendado es utilizar la aplicación <code>NetLogo_Console --headless</code>. Dado que <code>NetLogo_Console</code> emplea la
+versión de Java que se incluye con NetLogo, no es necesario realizar una instalación adicional de software ni
+configuraciones especiales.</p>
+<h4><a href="#ejemplos" id="ejemplos" class="section-anchor">Ejemplos</a></h4>
+<p>Resulta más conveniente crear previamente la configuración de un experimento en la interfaz gráfica,
+de modo que quede guardada como parte del modelo. Para ejecutar una configuración de experimento que
+se haya guardado en un modelo, se presenta un ejemplo de línea de comandos que debe ejecutarse
+desde la carpeta de instalación de NetLogo 7.0.2, de modo que las rutas a la aplicación
+<code>NetLogo_Console</code> y al modelo <code>Wolf Sheep Simple 5.nlogo</code> sean correctas.</p>
+<p>Las siguientes instrucciones deberían funcionar tal cual en una terminal en macOS y Linux. En Windows,
+en el símbolo del sistema, puede usarse <code>^</code> en lugar de <code>\</code> para dividir el comando en varias líneas
+o simplemente colocar el comando en una sola línea.</p>
+<pre><code class="language-sh">./NetLogo_Console --headless \
+  --model &quot;models/IABM Textbook/chapter 4/Wolf Sheep Simple 5.nlogo&quot; \
+  --experiment &quot;Wolf Sheep Simple model analysis&quot; \
+  --table -
+</code></pre>
+<p>Después de que el experimento nombrado se haya ejecutado, los resultados se envían tabulados en
+formato estándar, como CSV. El guión <code>-</code> es la forma de especificar el formato estándar en lugar
+de un archivo de resultados.</p>
+<p>Al ejecutar NetLogo en modo sin interfaz, se establece la propiedad de sistema <code>java.awt.headless</code>
+como verdadera. Esto indica a Java que funcione en modo sin interfaz gráfica, permitiéndo que NetLogo
+se ejecute en máquinas donde no se dispone de una pantalla gráfica.</p>
+<p>El argumento obligatorio <code>--model</code> se utiliza para especificar el archivo del modelo que se desea
+abrir.</p>
+<p>El argumento <code>--experiment</code> se utiliza para indicar el nombre del experimento que se desea
+ejecutar. (En el momento en que se crea una configuración de experimento en la GUI, se le asigna un
+nombre).</p>
+<p>A continuación, se presenta otro ejemplo que muestra algunos argumentos adicionales, opcionales:</p>
+<pre><code class="language-sh">./NetLogo_Console --headless \
+  --model &quot;models/IABM Textbook/chapter 4/Wolf Sheep Simple 5.nlogo&quot; \
+  --experiment &quot;Wolf Sheep Simple model analysis&quot; \
+  --max-pxcor 5 \
+  --min-pxcor -5 \
+  --max-pycor 5 \
+  --min-pycor -5
+</code></pre>
+<p>Observa el uso de los argumentos opcionales <code>--max-pxcor</code>, <code>--max-pycor</code>, etc., para
+especificar un tamaño de mundo diferente al que está guardado en el modelo. (También es
+posible que la configuración del experimento especifique valores para las dimensiones
+del mundo; si se especifican en la configuración del experimento, no es necesario indicarlos
+en la línea de comandos).</p>
+<p>Ya que no se especifica ni <code>--table</code> ni <code>--spreadsheet</code>, no se generarán resultados.
+Esto es útil si la configuración del experimento genera todos los resultados necesarios
+de alguna otra manera, como exportar archivos del mundo o escribir en un archivo
+de texto.</p>
+<p>Otro ejemplo adicional:</p>
+<pre><code class="language-sh">./NetLogo_Console --headless \
+  --model &quot;models/IABM Textbook/chapter 4/Wolf Sheep Simple 5.nlogo&quot; \
+  --experiment &quot;Wolf Sheep Simple model analysis&quot; \
+  --table wsp5-table-output.csv \
+  --spreadsheet wsp5-spreadsheet-output.csv \
+  --lists wsp5-lists-output.csv \
+  --stats wsp5-stats-output.csv
+</code></pre>
+<p>El argumento opcional <code>--table &lt;nombre de archivo&gt;</code> indica la geneneración de archivos con
+formato Resultados tabulados, que se escriben en el archivo especificado como datos CSV. Si se
+indica <code>-</code> como nombre de archivo, los archivos de resultados se generan con formato estándar.
+Los datos de la tabla se escriben a medida que se generan, cuando se completa cada ejecución.</p>
+<p>El argumento opcional <code>--spreadsheet &lt;nombre de archivo&gt;</code> indica la generación de archivos
+con formato Resultados en hoja de cálculo, que se escriben en el archivo especificado como datos CSV.
+Si se indica <code>-</code> como nombre de archivo, los archivos de resultados se generan con formato
+estándar. Los datos de la hoja de cálculo se escriben una vez que finalizan todas las ejecuciones
+del experimento.</p>
+<p>El argumento opcional <code>--lists &lt;nombre de archivo&gt;</code> indica la generación de archivos
+con formato Resultados en lista, que se escriben en el archivo especificado como datos CSV.
+Si se indica <code>-</code> como nombre de archivo, los archivos de resultados se generan con formato
+estándar. Los datos de la lista se escriben una vez que finalizan todas las ejecuciones
+del experimento.</p>
+<p>El argumento opcional <code>--stats &lt;nombre de archivo&gt;</code> indica la generación de archivos
+con formato Resultados estadísticos, que se escriben en el archivo especificado como datos CSV.
+Si se indica <code>-</code> como nombre de archivo, los archivos de resultados se generan con formato
+estándar. Los datos estadísticos se escriben una vez que finalizan todas las ejecuciones
+del experimento.</p>
+<p>Ten en cuenta que es válido indicar tanto <code>--table</code> como <code>--spreadsheet</code>, y de ser así,
+se generarán ambos tipos de archivos de resultados. Si se utiliza <code>--lists</code> o <code>--stats</code>,
+al menos una de las opciones <code>--table</code> o <code>--spreadsheet</code> debe ser utilizada.</p>
+<p>Enseguida se muestra un ejemplo que muestra cómo ejecutar una configuración de experimento
+almacenada en un archivo XML separado, en lugar de en el archivo del modelo (consulta más
+abajo para obtener información adicional sobre el formato del archivo XML). Esto asume que
+se ha creado un archivo <code>my-wsp-setups.xml</code> con un experimento &ldquo;My WSP Exploration&rdquo; y se ha
+colocado en el directorio de inicio. La forma más sencilla de crear un archivo de configuración
+es crear un experimento utilizando Espacio-Conductual en la interfaz gráfica de NetLogo y utilizar
+la opción &ldquo;Exportar&rdquo;.</p>
+<pre><code class="language-sh">./NetLogo_Console --headless \
+  --model &quot;models/IABM Textbook/chapter 4/Wolf Sheep Simple 5.nlogo&quot; \
+  --setup-file ~/my-wsp-setups.xml \
+  --experiment &quot;My WSP Exploration&quot;
+</code></pre>
+<p>Si el archivo XML contiene más de una configuración de experimento, es necesario utilizar
+el argumento <code>--experiment</code> para especificar el nombre de la configuración que se utilizará.</p>
+<p>Para ejecutar un experimento NetLogo 3D en modo sin interfaz, utiliza el argumento <code>--3D</code>,
+por ejemplo:</p>
+<pre><code class="language-sh">./NetLogo_Console --headless \
+  --3D \
+  --model &quot;models/3D/Sample Models/GasLab/GasLab Free Gas 3D.nlogo3d&quot; \
+  --experiment &quot;100 runs&quot; \
+  --table -
+</code></pre>
+<p>Ten en cuenta que se debe proporcionar un modelo 3D, y también que hay argumentos para modelos 3D.
+<code>--max-pzcor &lt;número&gt;</code> and <code>--min-pzcor &lt;número&gt;</code>.</p>
+<p>La próxima sección contiene información sobre cómo crear archivos de configuración
+de experimento en modo autónomo, utilizando XML.</p>
+<h3><a href="#configuración-de-experimentos-en-xml" id="configuración-de-experimentos-en-xml" class="section-anchor">Configuración de experimentos en XML</a></h3>
+<p>Aún no contamos con documentación detallada sobre cómo crear configuraciones de
+experimentos en XML. Sin embargo, si se tiene familiaridad con XML, los siguientes
+consejos pueden ayudar a comenzar.</p>
+<p>La estructura de las configuraciones de experimentos de Espacio-Conductual en XML se
+define mediante un archivo de Definición de Tipo de Documento (DTD). El DTD se
+encuentra en NetLogo.jar como <code>system/behaviorspace.dtd</code>. (Los archivos JAR son
+también archivos ZIP, por lo que puede extraerse el DTD del JAR utilizando la
+utilidad &ldquo;jar&rdquo; de Java o cualquier programa que gestione el formato ZIP).</p>
+<p>La forma más sencilla de aprender cómo se ven las configuraciones en XML, es crear
+algunas en la interfaz gráfica de Espacio-Conductual, guardar el modelo, exportarlas
+<em>(Desde 6.4)</em>, y luego examinar el o los archivos .xml resultantes en un editor de texto.
+También puedes encontrar las configuraciones de experimentos al final del archivo
+.nlogo, en una sección que comienza y termina con la etiqueta <code>experiments</code>. Por ejemplo:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE experiments SYSTEM &quot;behaviorspace.dtd&quot;&gt;
+&lt;experiments&gt;
+  &lt;experiment name=&quot;My WSP Exploration&quot; repetitions=&quot;5&quot; runMetricsEveryStep=&quot;false&quot;&gt;
+    &lt;setup&gt;setup&lt;/setup&gt;
+    &lt;go&gt;go&lt;/go&gt;
+    &lt;timeLimit steps=&quot;2000&quot;/&gt;
+    &lt;metric&gt;count wolves&lt;/metric&gt;
+    &lt;metric&gt;count sheep&lt;/metric&gt;
+    &lt;metric&gt;sum [grass-amount] of patches&lt;/metric&gt;
+    &lt;enumeratedValueSet variable=&quot;energy-gain-from-grass&quot;&gt;
+      &lt;value value=&quot;2&quot;/&gt;
+    &lt;/enumeratedValueSet&gt;
+    &lt;steppedValueSet variable=&quot;number-of-wolves&quot; first=&quot;5&quot; step=&quot;1&quot; last=&quot;15&quot;/&gt;
+    &lt;enumeratedValueSet variable=&quot;movement-cost&quot;&gt;
+      &lt;value value=&quot;0.5&quot;/&gt;
+    &lt;/enumeratedValueSet&gt;
+    &lt;enumeratedValueSet variable=&quot;energy-gain-from-sheep&quot;&gt;
+      &lt;value value=&quot;5&quot;/&gt;
+    &lt;/enumeratedValueSet&gt;
+    &lt;enumeratedValueSet variable=&quot;number-of-sheep&quot;&gt;
+      &lt;value value=&quot;500&quot;/&gt;
+    &lt;/enumeratedValueSet&gt;
+    &lt;enumeratedValueSet variable=&quot;grass-regrowth-rate&quot;&gt;
+      &lt;value value=&quot;0.3&quot;/&gt;
+    &lt;/enumeratedValueSet&gt;
+  &lt;/experiment&gt;
+&lt;/experiments&gt;
+</code></pre>
+<p>En este ejemplo, se muestra solo una configuración de experimento, pero pueden incluirse
+tantas como se deseen entre las etiquetas de inicio y finalización <code>experiments</code></p>
+<p>Al observar la DTD y los ejemplos creados en la interfaz gráfica, esperamos que sea
+evidente cómo utilizar las etiquetas para especificar diferentes tipos de experimentos.
+La DTD especifica cuáles etiquetas son obligatorias y cuáles son opcionales, cuáles
+pueden repetirse y cuáles no, entre otros detalles.</p>
+<p>Si se desea crear un archivo de configuración para NetLogo 6.3.0 y versiones anteriores,
+para las cuales <strong>Exportar</strong> no está disponible, debe tenerse en cuenta que en un archivo
+de modelo, el XML para configuraciones de experimentos no comienza con encabezados XML,
+ya que no todo el archivo es XML, solo una parte. Por lo tanto, si se crea manualmente un
+archivo separado para las configuraciones de experimentos, la extensión del archivo debe
+ser .xml y no .nlogo. Además, se debe iniciar el archivo con los encabezados XML adecuados,
+como se muestra a continuación:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE experiments SYSTEM &quot;behaviorspace.dtd&quot;&gt;
+</code></pre>
+<p>La segunda línea debe incluirse tal como se muestra. En la primera línea, puede especificarse
+una codificación diferente a <code>UTF-8</code>, como <code>ISO-8859-1</code>.</p>
+<h3><a href="#ajuste-de-parámetros-de-la-jvm" id="ajuste-de-parámetros-de-la-jvm" class="section-anchor">Ajuste de parámetros de la JVM</a></h3>
+<p>Al abrir el script de inicio de NetLogo Headless, verás las opciones utilizadas
+para iniciar Java al ejecutar NetLogo en modo sin interfaz. Pueden ajustarse varios parámetros
+de la JVM en este script. También pueden pasarse propiedades de Java que comiencen con <code>-D</code>
+al lanzador.</p>
+<p>NetLogo asigna un máximo de la mitad de la memoria total del sistema para ejecutar el modelo, según sea necesario. Si desea establecerse
+una cantidad máxima de memoria para el uso de Espacio-Conductual, puede utilizarse <a href="faq.html#how-big-can-my-model-be-how-many-turtles-patches-procedures-buttons-and-so-on-can-my-model-contain">la configuración <code>-Xmx</code> para especificar
+el tamaño del heap</a></p>
+<p>Observa el uso de <code>-Dfile.encoding=UTF-8</code>. Esto obliga a todos los archivos de E/S a utilizar
+la codificación UTF-8. Al hacerlo, se garantiza que NetLogo pueda cargar todos los modelos
+de manera coherente y que las primitivas de archivo file-* funcionen de manera uniforme en todas
+las plataformas, incluyendo modelos que contengan caracteres Unicode.</p>
+<h3><a href="#control-api" id="control-api" class="section-anchor">Control API</a></h3>
+<p>Si Espacio-Conductual no es suficiente para tus necesidades, una posible alternativa es utilizar
+nuestra API de Control, que permite escribir código en Java para controlar NetLogo. La
+API permite ejecutar experimentos de Espacio-Conductual desde el código en Java, o bien escribir
+código personalizado que controle NetLogo de manera más directa para realizar tareas similares
+a las de Espacio-Conductual. Consulta la sección <a href="controlling.html">Control</a> del Manual del Usuario
+para obtener más detalles sobre ambas posibilidades.</p>
+</main>
