@@ -6,7 +6,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>NetLogo 7.0.1: What&#39;s new?</title>
+		<title>NetLogo 7.0.2: What&#39;s new?</title>
 		<link rel="stylesheet" href="netlogo.css" type="text/css" />
 		<link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -24,7 +24,7 @@
 		<script>
 			window.netlogo = {
 				...(window.netlogo || {}),
-				version: "7.0.1",
+				version: "7.0.2",
 				title: "What&#39;s new?",
 				pdf: false,
 				stringVariables: {
@@ -282,8 +282,8 @@
 				</div>
 				<div class="navbar__actions">
 					<!-- Version / Actions -->
-					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.1">
-						<option selected value="this">7.0.1</option>
+					<select id="version-select" class="version-select" aria-label="Select version" data-current-version="7.0.2">
+						<option selected value="this">7.0.2</option>
 						<!-- See script:expandStringVariables for details on how ${var} works -->
 						<option data-url-prefix="${CCL}/6.4.0/docs" value="6.4.0">6.4</option>
 						<option data-url-prefix="${CCL}/6.3.0/docs" value="6.3.0">6.3.0</option>
@@ -524,6 +524,7 @@
 <div class="toc">
 <h4><a href="#table-of-contents" id="table-of-contents" class="section-anchor">Table of Contents</a></h4>
 <ul>
+<li><a href="#version-702-october-2025">Version 7.0.2 (October 2025)</a></li>
 <li><a href="#version-701-october-2025">Version 7.0.1 (October 2025)</a></li>
 <li><a href="#version-700-september-2025">Version 7.0.0 (September 2025)</a></li>
 <li><a href="#version-640-november-2023">Version 6.4.0 (November 2023)</a></li>
@@ -559,6 +560,11 @@
 <li><a href="#version-10-april-2002">Version 1.0 (April 2002)</a></li>
 </ul>
 </div>
+<h2><a href="#version-702-october-2025" id="version-702-october-2025" class="section-anchor">Version 7.0.2 (October 2025)</a></h2>
+<h3><a href="#major-bugs-fixed" id="major-bugs-fixed" class="section-anchor">Major bugs fixed</a></h3>
+<ul>
+<li>Loading a model with a slider&rsquo;s lower bound, upper bound or increment set to anything other than a constant would result in a critical error.</li>
+</ul>
 <h2><a href="#version-701-october-2025" id="version-701-october-2025" class="section-anchor">Version 7.0.1 (October 2025)</a></h2>
 <h3><a href="#bundled-software-to-open-multiple-instances-of-netlogo-on-mac" id="bundled-software-to-open-multiple-instances-of-netlogo-on-mac" class="section-anchor">Bundled software to open multiple instances of NetLogo on Mac</a></h3>
 <ul>
