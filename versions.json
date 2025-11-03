@@ -1,25 +1,143 @@
 [
-    { "name": "7.0.2", "value": "7.0.2" },
-    { "name": "7.0.1", "value": "7.0.1" },
-    { "name": "7.0.0", "value": "7.0.0" },
-    { "name": "7.0.0-beta2", "value": "7.0.0-beta2" },
-    { "name": "6.4", "value": "6.4.0", "urlPrefix": "${CCL}/6.4.0/docs" },
-    { "name": "6.3.0", "value": "6.3.0", "urlPrefix": "${CCL}/6.3.0/docs" },
-    { "name": "6.2.2", "value": "6.2.2", "urlPrefix": "${CCL}/6.2.2/docs" },
-    { "name": "6.1.1", "value": "6.1.1", "urlPrefix": "${CCL}/6.1.1/docs" },
-    { "name": "6.0.4", "value": "6.0.4", "urlPrefix": "${CCL}/6.0.4/docs" },
-    { "name": "6.0beta", "value": "6.0-BETA1", "urlPrefix": "${CCL}/6.0-BETA1/docs" },
-    { "name": "5.3.1", "value": "5.3.1", "urlPrefix": "${CCL}/5.3.1/docs" },
-    { "name": "5.2.1", "value": "5.2.1", "urlPrefix": "${CCL}/5.2.1/docs" },
-    { "name": "5.1.0", "value": "5.1.0", "urlPrefix": "${CCL}/5.1.0/docs" },
-    { "name": "5.0", "value": "5.0", "urlPrefix": "${CCL}/5.0/docs" },
-    { "name": "4.1", "value": "4.1", "urlPrefix": "${CCL}/4.1/docs" },
-    { "name": "4.0", "value": "4.0", "urlPrefix": "${CCL}/4.0/docs" },
-    { "name": "3.1", "value": "3.1", "urlPrefix": "${CCL}/3.1/docs" },
-    { "name": "3.0", "value": "3.0", "urlPrefix": "${CCL}/3.0/docs" },
-    { "name": "2.1", "value": "2.1", "disabled": true },
-    { "name": "2.0", "value": "2.0", "disabled": true },
-    { "name": "1.2", "value": "1.2", "disabled": true },
-    { "name": "1.1", "value": "1.1", "disabled": true },
-    { "name": "1.0", "value": "1.0", "disabled": true }
+  {
+    "name": "7.0.2",
+    "value": "7.0.2",
+    "latest": false
+  },
+  {
+    "name": "7.0.1",
+    "value": "7.0.1",
+    "latest": false
+  },
+  {
+    "name": "7.0.0",
+    "value": "7.0.0",
+    "latest": false
+  },
+  {
+    "name": "7.0.0-beta2",
+    "value": "7.0.0-beta2",
+    "latest": false
+  },
+  {
+    "name": "6.4",
+    "value": "6.4.0",
+    "urlPrefix": "${CCL}/6.4.0/docs",
+    "latest": false
+  },
+  {
+    "name": "6.3.0",
+    "value": "6.3.0",
+    "urlPrefix": "${CCL}/6.3.0/docs",
+    "latest": false
+  },
+  {
+    "name": "6.2.2",
+    "value": "6.2.2",
+    "urlPrefix": "${CCL}/6.2.2/docs",
+    "latest": false
+  },
+  {
+    "name": "6.1.1",
+    "value": "6.1.1",
+    "urlPrefix": "${CCL}/6.1.1/docs",
+    "latest": false
+  },
+  {
+    "name": "6.0.4",
+    "value": "6.0.4",
+    "urlPrefix": "${CCL}/6.0.4/docs",
+    "latest": false
+  },
+  {
+    "name": "6.0beta",
+    "value": "6.0-BETA1",
+    "urlPrefix": "${CCL}/6.0-BETA1/docs",
+    "latest": false
+  },
+  {
+    "name": "5.3.1",
+    "value": "5.3.1",
+    "urlPrefix": "${CCL}/5.3.1/docs",
+    "latest": false
+  },
+  {
+    "name": "5.2.1",
+    "value": "5.2.1",
+    "urlPrefix": "${CCL}/5.2.1/docs",
+    "latest": false
+  },
+  {
+    "name": "5.1.0",
+    "value": "5.1.0",
+    "urlPrefix": "${CCL}/5.1.0/docs",
+    "latest": false
+  },
+  {
+    "name": "5.0",
+    "value": "5.0",
+    "urlPrefix": "${CCL}/5.0/docs",
+    "latest": false
+  },
+  {
+    "name": "4.1",
+    "value": "4.1",
+    "urlPrefix": "${CCL}/4.1/docs",
+    "latest": false
+  },
+  {
+    "name": "4.0",
+    "value": "4.0",
+    "urlPrefix": "${CCL}/4.0/docs",
+    "latest": false
+  },
+  {
+    "name": "3.1",
+    "value": "3.1",
+    "urlPrefix": "${CCL}/3.1/docs",
+    "latest": false
+  },
+  {
+    "name": "3.0",
+    "value": "3.0",
+    "urlPrefix": "${CCL}/3.0/docs",
+    "latest": false
+  },
+  {
+    "name": "2.1",
+    "value": "2.1",
+    "disabled": true,
+    "latest": false
+  },
+  {
+    "name": "2.0",
+    "value": "2.0",
+    "disabled": true,
+    "latest": false
+  },
+  {
+    "name": "1.2",
+    "value": "1.2",
+    "disabled": true,
+    "latest": false
+  },
+  {
+    "name": "1.1",
+    "value": "1.1",
+    "disabled": true,
+    "latest": false
+  },
+  {
+    "name": "1.0",
+    "value": "1.0",
+    "disabled": true,
+    "latest": false
+  },
+  {
+    "version": "7.0.3",
+    "dir": "7.0.3/",
+    "displayName": "v7.0.3",
+    "buildTime": "2025-11-03T14:40:12.012Z",
+    "latest": true
+  }
 ]

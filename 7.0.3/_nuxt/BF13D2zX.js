@@ -1,0 +1,1 @@
+import{d as s,c as n,w as r,Q as t,R as p,k as u,o as c,D as d,ao as l}from"#entry";const i=s({__name:"DropdownMenuGroup",props:{asChild:{type:Boolean},as:{}},setup(o){const e=o;return(a,m)=>(c(),n(u(l),t(p(e)),{default:r(()=>[d(a.$slots,"default")]),_:3},16))}}),f=Object.assign(i,{__name:"DropdownMenuGroup"});export{f as default};

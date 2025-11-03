@@ -1,0 +1,1 @@
+import{d as t,e as a,D as n,E as r,k as c,o as p,a3 as l}from"#entry";const u=t({__name:"DropdownMenuShortcut",props:{class:{}},setup(s){const e=s;return(o,d)=>(p(),a("span",{class:r(c(l)("ml-auto text-xs tracking-widest opacity-60",e.class))},[n(o.$slots,"default")],2))}}),i=Object.assign(u,{__name:"DropdownMenuShortcut"});export{i as default};
